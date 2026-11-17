@@ -1,0 +1,13 @@
+{
+  "name": "Viewscape One",
+  "tagline": "holographic data field",
+  "eyebrow": "★ certified holo ★ field index",
+  "headline": "Choose a window.",
+  "subline": "Every tile is its own page — its own data, its own world. Hold the orb on the right to navigate.",
+  "footer": "drop a folder in /pages · list it in index.json · done",
+  "accent": "magenta",
+  "sources": [
+    { "id": "me",  "label": "Me",  "icon": "user", "accent": "magenta",   "description": "hand-built pages" },
+    { "id": "ai", "label": "AI", "icon": "bot",  "accent": "turquoise", "description": "built by AI" }
+  ]
+}

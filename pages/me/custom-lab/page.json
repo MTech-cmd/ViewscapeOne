@@ -1,0 +1,20 @@
+{
+  "type": "custom",
+  "title": "Custom Lab",
+  "subtitle": "A hand-built page with its own HTML, CSS and JS.",
+  "description": "Proves that a page can ignore page.json blocks entirely and still get the wheel, ambience and hologram frame.",
+  "icon": "code",
+  "accent": "violet",
+  "tags": ["custom", "canvas"],
+  "author": "me",
+  "updated": "2026-11-16",
+  "wheel": {
+    "label": "Lab",
+    "extras": [
+      { "label": "Pulse", "icon": "zap", "hint": "fire event", "action": { "type": "event", "name": "lab:pulse" } },
+      { "label": "Magenta", "icon": "palette", "action": { "type": "accent", "value": "magenta" } },
+      { "label": "Turquoise", "icon": "palette", "action": { "type": "accent", "value": "turquoise" } },
+      { "label": "Mint", "icon": "palette", "action": { "type": "accent", "value": "mint" } }
+    ]
+  }
+}

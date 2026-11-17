@@ -1,0 +1,12 @@
+{
+  "name": "dutch-health-insurance-picker-2027",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node modules/validate-cli.js",
+    "test": "node --test",
+    "serve": "node modules/server.js"
+  },
+  "engines": { "node": ">=20" }
+}

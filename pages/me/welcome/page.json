@@ -1,0 +1,72 @@
+{
+  "title": "Welcome",
+  "subtitle": "How Viewscape One works — and a tour of every block.",
+  "description": "This page is both the manual and the demo. Everything below is rendered from a single `page.json`.",
+  "icon": "star",
+  "accent": "magenta",
+  "tags": ["guide", "start-here"],
+  "author": "me",
+  "updated": "2026-11-16",
+  "wheel": {
+    "label": "Quick",
+    "extras": [
+      { "label": "Studio", "icon": "settings", "hint": "paste JSON", "action": { "type": "link", "href": "../../../studio/index.html" } },
+      { "label": "AI page", "icon": "bot", "hint": "sample", "action": { "type": "page", "ref": "ai/sample-intel" } },
+      { "label": "Custom lab", "icon": "code", "hint": "hand-built", "action": { "type": "page", "ref": "me/custom-lab" } }
+    ]
+  },
+  "sections": [
+    {
+      "title": "The idea",
+      "icon": "info",
+      "description": "Data in, hologram out.",
+      "blocks": [
+        { "type": "hero", "eyebrow": "viewscape one", "title": "Drop a folder. **Get a hologram.**", "subtitle": "Each page is a folder with a `page.json`. The framework renders it, wraps it in a holographic box on the home field, and gives it the radial wheel.", "tags": ["json-driven", "gh-pages ready", "zero build"], "cta": [{ "label": "Meet the AI page", "page": "ai/sample-intel" }, { "label": "Open the Studio", "href": "../../../studio/index.html", "ghost": true }] },
+        { "type": "text", "lead": true, "text": "Write the **data**, not the page. Viewscape handles layout, motion, media and navigation." },
+        { "type": "text", "paragraphs": [
+          "Multiple paragraphs are native: pass `paragraphs` as an array, or write one `text` string with blank lines, **bold**, *italic*, ==highlights==, `code` and [links](https://example.com).",
+          "Link to another page with `[[ai/sample-intel|that page]]` — it opens inside the hologram box without leaving the field.",
+          "Link to a file relative to this folder, like [the data file](data/extras.json), and it just works on GitHub Pages."
+        ] }
+      ]
+    },
+    {
+      "title": "The wheel",
+      "icon": "sparkle",
+      "blocks": [
+        { "type": "callout", "tone": "hot", "title": "Look right →", "text": "The glowing orb on the right edge is the wheel. **Hold it, drag toward a wedge, release.** Or tap it, then tap a wedge. Press **W** on a keyboard. Wedges with a dot open a sub-wheel." },
+        { "type": "columns", "ratio": "1fr 1fr", "columns": [
+          { "blocks": [ { "type": "heading", "level": 3, "text": "Built-in wedges" }, { "type": "list", "items": ["**Home** — back to the field", "**Sections** — jump to any section", "**Previous / Next** — walk the field", "**Colour** — cycle the six accents", "**Share** — copy link, open alone, fullscreen", "**Display** — particles, scanlines, motion"] } ] },
+          { "blocks": [ { "type": "heading", "level": 3, "text": "Your wedges" }, { "type": "text", "text": "Add up to 8 per page in `wheel.extras`. Each has a `label`, `icon`, `hint` and an `action`:" }, { "type": "code", "lang": "json", "code": "\"wheel\": { \"extras\": [\n  { \"label\": \"Docs\", \"icon\": \"book\",\n    \"action\": { \"type\": \"url\", \"href\": \"https://example.com\" } }\n] }" } ] }
+        ] }
+      ]
+    },
+    {
+      "title": "Block tour",
+      "icon": "layers",
+      "description": "Every block type, live.",
+      "blocks": [
+        { "type": "stats", "items": [
+          { "label": "Block types", "value": 30, "icon": "cube", "note": "and you can add more" },
+          { "label": "Dependencies", "value": 0, "icon": "zap", "note": "pure HTML/CSS/JS" },
+          { "label": "Uptime", "value": 99.9, "suffix": "%", "decimals": 1, "delta": "+0.4", "icon": "chart" },
+          { "label": "Accents", "value": 6, "icon": "palette" }
+        ] },
+        { "type": "tabs", "items": [
+          { "title": "Progress", "icon": "chart", "blocks": [ { "type": "progress", "items": [ { "label": "Framework", "value": 100 }, { "label": "Your content", "value": 35 }, { "label": "AI content", "value": 62 } ] } ] },
+          { "title": "Timeline", "icon": "list", "blocks": [ { "type": "timeline", "items": [ { "date": "step 1", "title": "Ask AI for a page", "text": "Paste `HANDOVER.json` into AI, describe the topic." }, { "date": "step 2", "title": "Import", "text": "Studio → paste the bundle → download the zip, or `node tools/vs.mjs import`." }, { "date": "step 3", "title": "Push", "text": "Commit to GitHub Pages. Done.", "tag": "live" } ] } ] },
+          { "title": "Table", "icon": "grid", "blocks": [ { "type": "table", "columns": ["Block", "Use", "Key props"], "rows": [["text", "paragraphs / markdown", "paragraphs, text, lead"], ["image", "zoomable picture", "src, caption"], ["video", "mp4 or YouTube/Vimeo", "src, poster, caption"], ["chart", "bar line area donut radar", "kind, data"], ["table", "sortable + filter", "columns, rows"], ["links", "cards to pages/files", "items"], ["tabs", "nested blocks", "items[].blocks"]], "caption": "Click a header to sort." } ] }
+        ] },
+        { "type": "accordion", "items": [
+          { "title": "Where do images and videos go?", "open": true, "blocks": [ { "type": "text", "text": "Put them next to `page.json` (e.g. `media/clip.mp4`) and reference `media/clip.mp4`. Paths are relative to the page folder so they work on any GitHub Pages path." } ] },
+          { "title": "Can a page be fully custom?", "blocks": [ { "type": "text", "text": "Yes — set `\"type\": \"custom\"` and write your own `index.html`, `page.css`, `page.js`. See [[me/custom-lab|Custom Lab]]." } ] }
+        ] },
+        { "type": "links", "items": [ { "title": "Sample Intel", "text": "A AI-style data page", "page": "ai/sample-intel", "tag": "ai" }, { "title": "Custom Lab", "text": "A hand-built page", "page": "me/custom-lab", "tag": "custom" }, { "title": "Extra data file", "text": "A local JSON file", "href": "data/extras.json", "icon": "code" }, { "title": "Handover file", "text": "For AI", "href": "../../../HANDOVER.json", "icon": "book" } ] },
+        { "type": "file", "src": "data/extras.json", "title": "extras.json", "text": "Downloadable file block" },
+        { "type": "quote", "text": "Any sufficiently advanced interface is indistinguishable from a hologram.", "author": "someone with a nice display", "role": "probably" },
+        { "type": "kv", "data": { "Framework": "Viewscape One", "Version": "1.0.0", "Hosting": "GitHub Pages", "Build step": "none" } },
+        { "type": "tags", "items": ["json", "holographic", "liquid glass", "retro-tech", "gh-pages"] }
+      ]
+    }
+  ]
+}

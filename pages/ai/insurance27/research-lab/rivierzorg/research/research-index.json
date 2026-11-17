@@ -1,0 +1,194 @@
+{
+  "entity": "Rivierzorg Direct",
+  "parent": "Riviergroep N.V.",
+  "provider": "Rivierzorg Verzekeringen N.V.",
+  "policy_year": 2027,
+  "sources": [
+    {
+      "source_id": "RIVIERZORG-SRC-001",
+      "title": "Annual Report 2025",
+      "publisher": "Rivierzorg Direct / Riviergroep N.V.",
+      "publication_date": "2025-12-31",
+      "verification_date": "2026-11-17",
+      "source_type": "annual report",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Scenario annual report; figures are invented and not independently audited.",
+      "local_file": "Sources/RIVIERZORG-SRC-001_Annual_Report_2025.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-002",
+      "title": "Basic and Supplementary Policy Guide 2027",
+      "publisher": "Rivierzorg Direct / Riviergroep N.V.",
+      "publication_date": "2026-11-10",
+      "verification_date": "2026-11-17",
+      "source_type": "policy guide",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Policy guide summary; not a real contract or legal instrument.",
+      "local_file": "Sources/RIVIERZORG-SRC-002_Policy_Guide_2027.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-003",
+      "title": "Care Access and Provider Network Report 2027",
+      "publisher": "Rivierzorg Direct / Riviergroep N.V.",
+      "publication_date": "2026-11-12",
+      "verification_date": "2026-11-17",
+      "source_type": "network report",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-produced network directory; not an independent capacity audit.",
+      "local_file": "Sources/RIVIERZORG-SRC-003_Care_Access_Report_2027.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-004",
+      "title": "Customer Service and Complaints Report 2025",
+      "publisher": "Rivierzorg Direct / Riviergroep N.V.",
+      "publication_date": "2026-02-03",
+      "verification_date": "2026-11-17",
+      "source_type": "service report",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-reported service metrics; definitions vary between entities.",
+      "local_file": "Sources/RIVIERZORG-SRC-004_Customer_Service_Report_2025.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-005",
+      "title": "Website Snapshot 2026-11-16",
+      "publisher": "Rivierzorg Direct / Riviergroep N.V.",
+      "publication_date": "2026-11-16",
+      "verification_date": "2026-11-17",
+      "source_type": "website capture",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Archived simulation website content; not a real insurer website.",
+      "local_file": "Sources/RIVIERZORG-SRC-005_Website_Snapshot_2026-11-16.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-006",
+      "title": "FlowCore Platform Architecture and API Map, v3.4",
+      "publisher": "Rivier Digital Operations",
+      "publication_date": "2026-08-22",
+      "verification_date": "2026-11-17",
+      "source_type": "technology",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company technical document. It describes system design, not operating effectiveness or staff location.",
+      "local_file": "Sources/RIVIERZORG-SRC-006_FlowCore_Platform_Architecture_and_API_Map_v3_4.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-007",
+      "title": "Provider Directory Data Dictionary, 2027",
+      "publisher": "Rivier Network Data Team",
+      "publication_date": "2026-12-20",
+      "verification_date": "2026-11-17",
+      "source_type": "network",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-produced data dictionary. ACTIVE is an administrative status, not a quality or access signal.",
+      "local_file": "Sources/RIVIERZORG-SRC-007_Provider_Directory_Data_Dictionary_2027.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-008",
+      "title": "Service Interruption and Recovery Review, 2026",
+      "publisher": "Rivier Reliability Office",
+      "publication_date": "2026-10-09",
+      "verification_date": "2026-11-17",
+      "source_type": "incident",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company incident review. No independent post-incident validation or customer-level distribution is provided.",
+      "local_file": "Sources/RIVIERZORG-SRC-008_Service_Interruption_and_Recovery_Review_2026.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-009",
+      "title": "Routine Claims Speed: Metric Definition and Exclusions",
+      "publisher": "Rivier Insights Unit",
+      "publication_date": "2026-02-15",
+      "verification_date": "2026-11-17",
+      "source_type": "metrics",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-defined service metrics. The two figures use different populations and should not be read as all-member outcomes.",
+      "local_file": "Sources/RIVIERZORG-SRC-009_Routine_Claims_Speed_Metric_Definition_and_Exclusions.pdf"
+    },
+    {
+      "source_id": "RIVIERZORG-SRC-010",
+      "title": "Managed Services Schedule: FlowCore Exception Route",
+      "publisher": "Rivier Procurement and Platform Office",
+      "publication_date": "2025-04-01",
+      "verification_date": "2026-11-17",
+      "source_type": "outsourcing",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Fictional contract schedule. The public annex does not contain a complete processing agreement, security audit or subcontractor register.",
+      "local_file": "Sources/RIVIERZORG-SRC-010_Managed_Services_Schedule_FlowCore_Exception_Route.pdf"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CLM-01",
+      "topic": "Legal identity",
+      "claim": "The public brand is operated by the legal insurer named in the annual report.",
+      "evidence_status": "Supported",
+      "confidence": "High",
+      "rationale": "Annual report and registry identity records establish the fictional legal names."
+    },
+    {
+      "claim_id": "CLM-02",
+      "topic": "Policy terms",
+      "claim": "Published non-contracted reimbursement is calculated against the insurer-defined tariff basis, not necessarily the provider invoice.",
+      "evidence_status": "Supported",
+      "confidence": "High",
+      "rationale": "Policy guide describes the basis; actual claim-level outcomes are not modelled."
+    },
+    {
+      "claim_id": "CLM-03",
+      "topic": "Hospital network",
+      "claim": "The headline hospital percentage describes a directory denominator, not practical access to every specialty or location.",
+      "evidence_status": "Supported",
+      "confidence": "High",
+      "rationale": "Network annex defines the denominator; capacity and waiting time remain unknown."
+    },
+    {
+      "claim_id": "CLM-04",
+      "topic": "Customer service",
+      "claim": "Published complaint/service metrics are directly comparable across the three companies.",
+      "evidence_status": "Disputed",
+      "confidence": "High",
+      "rationale": "The source definitions, numerators and denominators differ materially."
+    },
+    {
+      "claim_id": "CLM-05",
+      "topic": "Outsourcing",
+      "claim": "The insurer uses at least one third-party provider for administrative workflows.",
+      "evidence_status": "Partly supported",
+      "confidence": "Medium",
+      "rationale": "Company schedule/technical or board appendix plus supplier register; complete data-processing terms are not public."
+    },
+    {
+      "claim_id": "CLM-06",
+      "topic": "Practical access",
+      "claim": "A named care pathway guarantees an appointment within a specific time.",
+      "evidence_status": "Unknown",
+      "confidence": "High",
+      "rationale": "No source provides a complete patient-level waiting-time distribution."
+    },
+    {
+      "claim_id": "CLM-07",
+      "topic": "Claims automation",
+      "claim": "The 82% two-day metric applies to every claim received.",
+      "evidence_status": "Disputed",
+      "confidence": "High",
+      "rationale": "Metric note excludes incomplete, pending-document and manual-review cases."
+    },
+    {
+      "claim_id": "CLM-08",
+      "topic": "Platform resilience",
+      "claim": "All claims processing stopped during the October 2026 interruption.",
+      "evidence_status": "Disputed",
+      "confidence": "High",
+      "rationale": "Incident report says routine app claims continued while document cases queued."
+    }
+  ]
+}

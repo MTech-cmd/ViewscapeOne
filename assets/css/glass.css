@@ -1,0 +1,55 @@
+/* Viewscape One — glass.css : Apple-style liquid glass surfaces, buttons, inputs */
+.vs-glass {
+  position: relative; background: linear-gradient(135deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .03) 45%, rgba(var(--accent-rgb), .06));
+  -webkit-backdrop-filter: blur(22px) saturate(1.7) brightness(1.08); backdrop-filter: blur(22px) saturate(1.7) brightness(1.08);
+  border: 1px solid var(--glass-brd); border-radius: var(--r);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .38), inset 0 -1px 0 rgba(255, 255, 255, .06), inset 0 0 22px rgba(255, 255, 255, .04), 0 12px 40px rgba(0, 0, 0, .45), 0 0 0 1px rgba(0, 0, 0, .35);
+}
+.vs-glass::before { /* specular rim */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; padding: 1px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, .75), rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0) 70%, rgba(var(--accent-rgb), .7));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: .55;
+}
+
+.vs-btn, .vs-chip, .vs-icon-btn {
+  position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--glass-brd); color: var(--vs-ink);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .04)); -webkit-backdrop-filter: blur(14px) saturate(1.6); backdrop-filter: blur(14px) saturate(1.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 6px 20px rgba(0, 0, 0, .35); transition: transform .35s var(--spring), box-shadow .3s, background .3s, border-color .3s;
+}
+.vs-btn { padding: .72em 1.35em; border-radius: 99px; font: 700 .86rem/1 var(--f-disp); letter-spacing: .12em; text-transform: uppercase;
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .55), rgba(var(--accent-rgb), .16)); border-color: rgba(var(--accent-rgb), .7); text-shadow: 0 0 10px rgba(var(--accent-rgb), .9); }
+.vs-btn.ghost { background: linear-gradient(180deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .03)); border-color: var(--glass-brd); text-shadow: none; }
+.vs-btn.sm { padding: .55em 1em; font-size: .72rem; }
+.vs-chip { padding: .5em 1em; border-radius: 99px; font: 600 .82rem/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase; }
+.vs-chip b { font: 500 .72rem var(--f-mono); opacity: .7; margin-left: .2rem; }
+.vs-chip.static { cursor: default; text-transform: none; font-size: .78rem; padding: .4em .8em; }
+.vs-chip.on { background: linear-gradient(180deg, rgba(var(--accent-rgb), .6), rgba(var(--accent-rgb), .18)); border-color: rgba(var(--accent-rgb), .9); box-shadow: 0 0 22px rgba(var(--accent-rgb), .5), inset 0 1px 0 rgba(255, 255, 255, .5); }
+.vs-icon-btn { width: 40px; height: 40px; border-radius: 50%; justify-content: center; padding: 0; }
+.vs-btn:hover, .vs-chip:hover, .vs-icon-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 10px 30px rgba(var(--accent-rgb), .35); text-shadow: 0 0 10px rgba(var(--accent-rgb), .9); }
+.vs-btn:active, .vs-chip:active, .vs-icon-btn:active { transform: scale(.96); }
+.vs-ripple { position: absolute; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(255, 255, 255, .55), rgba(var(--accent-rgb), .25) 40%, transparent 70%); transform: scale(0); animation: ripple .7s var(--ease) forwards; }
+
+.vs-input { width: 100%; font: 500 1rem var(--f-body); color: var(--vs-ink); background: transparent; border: 0; outline: none; padding: .7em 1em; letter-spacing: .04em; }
+.vs-input::placeholder { color: var(--vs-faint); }
+.vs-tablewrap > .vs-input { background: var(--glass); border: 1px solid var(--glass-brd); border-radius: 99px; margin-bottom: .8rem; max-width: 340px; }
+.vs-searchbox { display: flex; align-items: center; padding-left: 1rem; border-radius: 99px; min-width: min(300px, 70vw); color: var(--accent); }
+.vs-searchbox:focus-within { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 0 0 2px rgba(var(--accent-rgb), .6), 0 0 30px rgba(var(--accent-rgb), .35); }
+
+/* specular glare used by tilt */
+.vs-glare { position: absolute; inset: 0; pointer-events: none; border-radius: inherit; opacity: 0; transition: opacity .3s; mix-blend-mode: screen;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .28), transparent 45%); }
+:hover > .vs-glare { opacity: 1; }
+
+/* toast + lightbox + modal */
+.vs-toasts { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 400; display: grid; gap: 8px; justify-items: center; pointer-events: none; }
+.vs-toast { display: flex; gap: .6rem; align-items: center; padding: .7em 1.2em; border-radius: 99px; transform: translateY(20px) scale(.9); opacity: 0; transition: .4s var(--spring); color: var(--accent); font: 600 .9rem var(--f-body); letter-spacing: .06em; }
+.vs-toast span { color: var(--vs-ink); } .vs-toast.in { transform: none; opacity: 1; }
+.vs-lightbox { position: fixed; inset: 0; z-index: 500; display: grid; place-items: center; background: rgba(5, 3, 10, .82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); opacity: 0; transition: opacity .3s; padding: 3vw; text-align: center; }
+.vs-lightbox.in { opacity: 1; } .vs-lightbox img { max-height: 78vh; max-width: 92vw; border-radius: 10px; margin: auto; }
+.vs-lightbox p { color: var(--vs-dim); font-family: var(--f-mono); margin: .8rem 0 0; }
+.vs-lightbox button { position: absolute; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; z-index: 2; }
+.vs-lightbox .x { top: 18px; right: 18px; } .vs-lightbox .p { left: 18px; top: 50%; } .vs-lightbox .n { right: 18px; top: 50%; }
+.vs-modal { position: fixed; inset: 0; z-index: 450; display: grid; place-items: center; padding: 1rem; opacity: 0; transition: opacity .35s; }
+.vs-modal.in { opacity: 1; } .vs-modal .bk { position: absolute; inset: 0; background: rgba(5, 3, 10, .7); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.vs-modal .pn { position: relative; max-width: 520px; padding: 1.6rem 1.8rem; transform: translateY(20px) scale(.96); transition: .5s var(--spring); } .vs-modal.in .pn { transform: none; }
+.vs-modal h3 { font: 800 1.1rem var(--f-disp); letter-spacing: .12em; margin: 0 0 .6rem; color: var(--accent); }

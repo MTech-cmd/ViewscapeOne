@@ -1,0 +1,117 @@
+[
+  {
+    "group_id": "achmea",
+    "name": "Achmea",
+    "legal_entity": null,
+    "ownership_summary": null,
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified corporate research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "provider_ids": [
+      "zilveren-kruis"
+    ],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative group/provider pairing from project scope; legal relationship requires verification."
+    ]
+  },
+  {
+    "group_id": "vgz",
+    "name": "VGZ",
+    "legal_entity": null,
+    "ownership_summary": null,
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified corporate research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "provider_ids": [
+      "vgz-provider"
+    ],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative group/provider pairing from project scope; legal relationship requires verification."
+    ]
+  },
+  {
+    "group_id": "cz",
+    "name": "CZ",
+    "legal_entity": null,
+    "ownership_summary": null,
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified corporate research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "provider_ids": [
+      "cz-provider"
+    ],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative group/provider pairing from project scope; legal relationship requires verification."
+    ]
+  },
+  {
+    "group_id": "menzis",
+    "name": "Menzis",
+    "legal_entity": null,
+    "ownership_summary": null,
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified corporate research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "provider_ids": [
+      "menzis-provider"
+    ],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative group/provider pairing from project scope; legal relationship requires verification."
+    ]
+  },
+  {
+    "group_id": "dsw",
+    "name": "DSW",
+    "legal_entity": null,
+    "ownership_summary": null,
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified corporate research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "provider_ids": [
+      "dsw-provider"
+    ],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative group/provider pairing from project scope; legal relationship requires verification."
+    ]
+  }
+]

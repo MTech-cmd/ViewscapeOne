@@ -1,0 +1,194 @@
+{
+  "entity": "Noordlicht Zorg",
+  "parent": "Noordlicht Holding U.A.",
+  "provider": "Noordlicht Zorgverzekeraar N.V.",
+  "policy_year": 2027,
+  "sources": [
+    {
+      "source_id": "NOORDLICHT-SRC-001",
+      "title": "Annual Report 2025",
+      "publisher": "Noordlicht Zorg / Noordlicht Holding U.A.",
+      "publication_date": "2025-12-31",
+      "verification_date": "2026-11-17",
+      "source_type": "annual report",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Scenario annual report; figures are invented and not independently audited.",
+      "local_file": "Sources/NOORDLICHT-SRC-001_Annual_Report_2025.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-002",
+      "title": "Basic and Supplementary Policy Guide 2027",
+      "publisher": "Noordlicht Zorg / Noordlicht Holding U.A.",
+      "publication_date": "2026-11-10",
+      "verification_date": "2026-11-17",
+      "source_type": "policy guide",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Policy guide summary; not a real contract or legal instrument.",
+      "local_file": "Sources/NOORDLICHT-SRC-002_Policy_Guide_2027.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-003",
+      "title": "Care Access and Provider Network Report 2027",
+      "publisher": "Noordlicht Zorg / Noordlicht Holding U.A.",
+      "publication_date": "2026-11-12",
+      "verification_date": "2026-11-17",
+      "source_type": "network report",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-produced network directory; not an independent capacity audit.",
+      "local_file": "Sources/NOORDLICHT-SRC-003_Care_Access_Report_2027.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-004",
+      "title": "Customer Service and Complaints Report 2025",
+      "publisher": "Noordlicht Zorg / Noordlicht Holding U.A.",
+      "publication_date": "2026-02-03",
+      "verification_date": "2026-11-17",
+      "source_type": "service report",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-reported service metrics; definitions vary between entities.",
+      "local_file": "Sources/NOORDLICHT-SRC-004_Customer_Service_Report_2025.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-005",
+      "title": "Website Snapshot 2026-11-16",
+      "publisher": "Noordlicht Zorg / Noordlicht Holding U.A.",
+      "publication_date": "2026-11-16",
+      "verification_date": "2026-11-17",
+      "source_type": "website capture",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Archived simulation website content; not a real insurer website.",
+      "local_file": "Sources/NOORDLICHT-SRC-005_Website_Snapshot_2026-11-16.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-006",
+      "title": "Member Assembly Minutes, 2025",
+      "publisher": "Member Assembly Secretariat",
+      "publication_date": "2025-06-18",
+      "verification_date": "2026-11-17",
+      "source_type": "governance",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Internal governance record; minutes are not a complete transcript. Delegate voting is not a direct vote by all insured persons.",
+      "local_file": "Sources/NOORDLICHT-SRC-006_Member_Assembly_Minutes_2025.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-007",
+      "title": "Halo and Hospital Network Annex, 2027",
+      "publisher": "Noordlicht Network Office",
+      "publication_date": "2026-11-12",
+      "verification_date": "2026-11-17",
+      "source_type": "network",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-produced directory annex. No independent capacity audit. Organisation-level denominator may overstate local access.",
+      "local_file": "Sources/NOORDLICHT-SRC-007_Halo_and_Hospital_Network_Annex_2027.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-008",
+      "title": "Complaint Intake and Resolution Method Note, 2025",
+      "publisher": "Noordlicht Customer Office",
+      "publication_date": "2026-02-03",
+      "verification_date": "2026-11-17",
+      "source_type": "metrics",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company-defined metric. Not directly comparable with ticket rates or upheld-complaint rates.",
+      "local_file": "Sources/NOORDLICHT-SRC-008_Complaint_Intake_and_Resolution_Method_Note_2025.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-009",
+      "title": "KRO Corporate Register Extract: Noordlicht and Service Suppliers",
+      "publisher": "Kamerregister voor Ondernemingen (KRO)",
+      "publication_date": "2026-09-30",
+      "verification_date": "2026-11-17",
+      "source_type": "registry",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Fictional public register extract. Registration details are scenario data; service links do not prove ownership or control.",
+      "local_file": "Sources/NOORDLICHT-SRC-009_KRO_Corporate_Register_Extract_Noordlicht_and_Service_Suppliers.pdf"
+    },
+    {
+      "source_id": "NOORDLICHT-SRC-010",
+      "title": "Procurement and Outsourcing Schedule, 2025–2027",
+      "publisher": "Noordlicht Procurement Office",
+      "publication_date": "2025-11-01",
+      "verification_date": "2026-11-17",
+      "source_type": "outsourcing",
+      "evidence_status": "Fictional source - valid only inside this simulation",
+      "confidence": "High for what the fictional document says; no real-world applicability",
+      "limitations": "Company schedule reproduced in a fictional disclosure pack. Public copy lacks signatures and full data-processing annex.",
+      "local_file": "Sources/NOORDLICHT-SRC-010_Procurement_and_Outsourcing_Schedule_2025_2027.pdf"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CLM-01",
+      "topic": "Legal identity",
+      "claim": "The public brand is operated by the legal insurer named in the annual report.",
+      "evidence_status": "Supported",
+      "confidence": "High",
+      "rationale": "Annual report and registry identity records establish the fictional legal names."
+    },
+    {
+      "claim_id": "CLM-02",
+      "topic": "Policy terms",
+      "claim": "Published non-contracted reimbursement is calculated against the insurer-defined tariff basis, not necessarily the provider invoice.",
+      "evidence_status": "Supported",
+      "confidence": "High",
+      "rationale": "Policy guide describes the basis; actual claim-level outcomes are not modelled."
+    },
+    {
+      "claim_id": "CLM-03",
+      "topic": "Hospital network",
+      "claim": "The headline hospital percentage describes a directory denominator, not practical access to every specialty or location.",
+      "evidence_status": "Supported",
+      "confidence": "High",
+      "rationale": "Network annex defines the denominator; capacity and waiting time remain unknown."
+    },
+    {
+      "claim_id": "CLM-04",
+      "topic": "Customer service",
+      "claim": "Published complaint/service metrics are directly comparable across the three companies.",
+      "evidence_status": "Disputed",
+      "confidence": "High",
+      "rationale": "The source definitions, numerators and denominators differ materially."
+    },
+    {
+      "claim_id": "CLM-05",
+      "topic": "Outsourcing",
+      "claim": "The insurer uses at least one third-party provider for administrative workflows.",
+      "evidence_status": "Partly supported",
+      "confidence": "Medium",
+      "rationale": "Company schedule/technical or board appendix plus supplier register; complete data-processing terms are not public."
+    },
+    {
+      "claim_id": "CLM-06",
+      "topic": "Practical access",
+      "claim": "A named care pathway guarantees an appointment within a specific time.",
+      "evidence_status": "Unknown",
+      "confidence": "High",
+      "rationale": "No source provides a complete patient-level waiting-time distribution."
+    },
+    {
+      "claim_id": "CLM-07",
+      "topic": "Member governance",
+      "claim": "All insured persons can vote on individual supplier procurement decisions.",
+      "evidence_status": "Disputed",
+      "confidence": "High",
+      "rationale": "Assembly minutes distinguish insured persons, delegates and executive procurement authority."
+    },
+    {
+      "claim_id": "CLM-08",
+      "topic": "Halo pathway",
+      "claim": "Halo provides one national gender-care appointment queue.",
+      "evidence_status": "Disputed",
+      "confidence": "High",
+      "rationale": "The pathway is described across three regions; no national queue is evidenced."
+    }
+  ]
+}

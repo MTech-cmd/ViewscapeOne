@@ -1,0 +1,22 @@
+# Research glossary - expanded
+
+- **Parent group:** Wider corporate group above an operating insurer.
+- **Operating insurer / legal insurer:** Legal entity named in the insurance contract and bearing the relevant insurance obligations in this simulation.
+- **Brand:** Customer-facing identity; it may differ from the legal entity.
+- **Policy:** Product contract for a specified insurance year.
+- **Policy year:** The period the product terms apply to; never infer a policy year from a document title alone.
+- **Supplementary insurance:** Separate optional product with its own premium, eligibility, annual limits and exclusions.
+- **Risk carrier:** Entity bearing the insurance risk; do not infer it solely from a group brand.
+- **Service provider / processor:** External organisation performing a service. A service contract does not prove ownership or control.
+- **Outsourcing concentration:** Dependency on one or a small number of suppliers for operationally important services.
+- **Contracted provider:** Provider contracted for the relevant treatment, location and policy year.
+- **Directory status:** Administrative code in a provider export; not necessarily evidence of capacity, appointment availability or quality.
+- **Legal entitlement:** What applicable law provides. This simulation does not establish real legal entitlements.
+- **Contractual entitlement:** What the fictional policy terms promise.
+- **Practical accessibility:** Whether a person can actually obtain care in a location and timeframe.
+- **Numerator / denominator:** The count included in a metric and the population or unit it is divided by.
+- **Evidence status:** Supported, Partly supported, Disputed, Unknown or Outdated.
+- **Confidence:** High, Medium, Low or Unknown confidence in the research interpretation; separate from evidence status.
+- **Source register:** Structured record of source IDs, publisher, dates, source type, local file and limitations.
+- **Claim register:** Atomic claims linked to sources, evidence status, confidence and rationale.
+- **Official-style simulation:** Fictional record designed to resemble a document genre, not a real public authority document.

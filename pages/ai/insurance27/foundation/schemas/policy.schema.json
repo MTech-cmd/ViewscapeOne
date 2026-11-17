@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/dhip-2027/schemas/individual-policy.schema.json",
+  "title": "Individual Policy",
+  "description": "An individual insurance contract for a specific year. Unknown contract values are nullable.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "policy_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "provider_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy_year": {
+      "type": "integer",
+      "minimum": 2027
+    },
+    "policy_type": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "supplementary",
+        "dental",
+        "other",
+        "unknown"
+      ]
+    },
+    "monthly_premium_eur": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "deductible_eur": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "coverage_summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reimbursement_conditions": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "referral_requirements": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contracted_provider_information": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rating": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "explanation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_-]*$"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "last_verified": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      },
+      "required": [
+        "rating",
+        "explanation",
+        "claim_ids",
+        "limitations",
+        "confidence",
+        "last_verified"
+      ]
+    },
+    "claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[a-z][a-z0-9_-]*$"
+      }
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "partially_verified",
+        "verified"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "policy_id",
+    "provider_id",
+    "name",
+    "policy_year",
+    "policy_type",
+    "monthly_premium_eur",
+    "deductible_eur",
+    "coverage_summary",
+    "reimbursement_conditions",
+    "exclusions",
+    "referral_requirements",
+    "contracted_provider_information",
+    "assessment",
+    "claim_ids",
+    "verification_status",
+    "notes"
+  ]
+}

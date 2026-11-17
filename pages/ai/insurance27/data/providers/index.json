@@ -1,0 +1,112 @@
+[
+  {
+    "provider_id": "zilveren-kruis",
+    "group_id": "achmea",
+    "name": "Zilveren Kruis",
+    "legal_insurer": null,
+    "provider_type": "unknown",
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified provider research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "policy_ids": [],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative provider from project scope; legal insurer identity and group relationship require verification."
+    ]
+  },
+  {
+    "provider_id": "vgz-provider",
+    "group_id": "vgz",
+    "name": "VGZ",
+    "legal_insurer": null,
+    "provider_type": "unknown",
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified provider research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "policy_ids": [],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative provider from project scope; legal insurer identity and group relationship require verification."
+    ]
+  },
+  {
+    "provider_id": "cz-provider",
+    "group_id": "cz",
+    "name": "CZ",
+    "legal_insurer": null,
+    "provider_type": "unknown",
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified provider research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "policy_ids": [],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative provider from project scope; legal insurer identity and group relationship require verification."
+    ]
+  },
+  {
+    "provider_id": "menzis-provider",
+    "group_id": "menzis",
+    "name": "Menzis",
+    "legal_insurer": null,
+    "provider_type": "unknown",
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified provider research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "policy_ids": [],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative provider from project scope; legal insurer identity and group relationship require verification."
+    ]
+  },
+  {
+    "provider_id": "dsw-provider",
+    "group_id": "dsw",
+    "name": "DSW",
+    "legal_insurer": null,
+    "provider_type": "unknown",
+    "assessment": {
+      "rating": null,
+      "explanation": null,
+      "claim_ids": [],
+      "limitations": [
+        "No verified provider research has been entered."
+      ],
+      "confidence": "unknown",
+      "last_verified": null
+    },
+    "policy_ids": [],
+    "verification_status": "unverified",
+    "notes": [
+      "Initial representative provider from project scope; legal insurer identity and group relationship require verification."
+    ]
+  }
+]

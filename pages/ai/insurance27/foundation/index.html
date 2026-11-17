@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-based Dutch health insurance research and comparison foundation for 2027.">
+  <title>Dutch Health Insurance Picker 2027</title><link rel="stylesheet" href="styles.css">
+  <script type="module" src="modules/app.js"></script>
+</head>
+<body>
+  <header class="site-header"><div class="container"><p class="eyebrow">Independent research · Insurance year 2027</p><h1>Dutch Health Insurance Picker</h1><p>Understand the evidence behind insurance groups, providers and individual policies.</p><span id="status" class="status" role="status">Loading data…</span></div></header>
+  <main class="container">
+    <div id="error" class="error" role="alert" hidden></div>
+    <section aria-labelledby="scope-title"><h2 id="scope-title">Foundation overview</h2><p class="intro">This is an early technical foundation, not a recommendation engine. No policy prices, coverage findings or corporate scores have been verified or populated.</p><div id="counts" class="stats" aria-live="polite"></div></section>
+    <section aria-labelledby="groups-title"><h2 id="groups-title">Insurance groups</h2><div id="groups"></div></section>
+    <section aria-labelledby="providers-title"><h2 id="providers-title">Insurance providers</h2><div id="providers"></div></section>
+    <section aria-labelledby="policies-title"><h2 id="policies-title">Individual policies</h2><div id="policies"></div></section>
+    <section aria-labelledby="evidence-title"><h2 id="evidence-title">Research evidence</h2><div id="evidence"></div><p class="muted">Evidence records are intentionally empty until research is supplied and verified.</p></section>
+    <section class="principle"><h2>How to read this foundation</h2><p><strong>Unknown does not mean poor.</strong> Initial group/provider pairings are research starting points, not verified legal relationships. Inspect the JSON records and run validation before changing the dataset.</p></section>
+  </main>
+  <footer><div class="container">V0.1 technical foundation · Decisions remain with the user · Not insurance advice</div></footer>
+</body></html>

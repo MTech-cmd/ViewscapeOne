@@ -1,0 +1,22 @@
+case,research_question,source_id,intended_clue
+Case 01,Member voting / procurement authority,NOORDLICHT-SRC-006,Delegate model; executive board retains procurement
+Case 01,Administrative supplier relationship,NOORDLICHT-SRC-009,Kade is separately registered; relationship is not ownership
+Case 01,Nature of outsourced work,NOORDLICHT-SRC-010,Document intake and file preparation; insurer retains final decisions
+Case 02,Platform exception path,RIVIERZORG-SRC-006,Kade Relay / exception flow event labels
+Case 02,Service interruption,RIVIERZORG-SRC-008,Document relay incident; routine app claims continued
+Case 02,Claims speed metric exclusions,RIVIERZORG-SRC-009,Routine machine-readable app claims only
+Case 02,Named supplier,RIVIERZORG-SRC-010,Kade identified as relay and exception queue operator
+Case 03,Voting membership,KOMPAS-SRC-006,Insured lives differ from voting members
+Case 03,Family Support eligibility,KOMPAS-SRC-007,"Policyholder, registered partner, dependent children aged 0-17"
+Case 03,Regional navigation area,KOMPAS-SRC-008,Three core provinces; 95% organisation metric
+Shared,Legal supplier identity and owner,KRO-2026-041,Kade; Wetering Civic Capital is recorded shareholder
+Shared,Filing receipt limitation,DBR-2026-119,Receipt is not audit or solvency finding
+Shared,Sector concentration risk,NZT-2026-08,"Thematic guidance, no named company finding"
+Shared,Financing relationship,NCB-2025-77,Wetering facility; customers not named in public summary
+Shared,Press lead,ZORGLIJN-2026-34,Shared service hypothesis; incomplete contracts
+Network metric,Noordlicht denominator,NOORDLICHT-SRC-007,Hospital organisations 82/89
+Network metric,Rivierzorg denominator,RIVIERZORG-SRC-007,ACTIVE hospital addresses
+Network metric,Kompas denominator,KOMPAS-SRC-008,Organisations with any active agreement
+Complaint metric,Noordlicht definition,NOORDLICHT-SRC-008,"Formal complaints, excludes early contacts"
+Complaint metric,Rivierzorg definition,RIVIERZORG-SRC-009,Tagged tickets per active digital account
+Complaint metric,Kompas definition,KOMPAS-SRC-004,Upheld formal complaints / year-end insured persons

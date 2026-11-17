@@ -1,0 +1,8 @@
+{
+  "note": "A plain data file living inside a page folder. Link to it, download it, or fetch it with a block's \"src\".",
+  "items": [
+    { "label": "alpha", "value": 12 },
+    { "label": "beta", "value": 19 },
+    { "label": "gamma", "value": 7 }
+  ]
+}

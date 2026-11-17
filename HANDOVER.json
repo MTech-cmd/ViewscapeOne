@@ -1,0 +1,390 @@
+{
+  "_readme": "HANDOVER for the user's AI. Paste this whole file into the AI, then describe the site/page you want. Follow `site_brief` (folder-based). Everything after it is reference.",
+  "framework": {
+    "name": "Viewscape One",
+    "version": "1.0.0",
+    "what_it_is": "A static, build-free, GitHub-Pages-ready framework. The home page is a field of tiles; each tile is a folder under pages/<source>/<slug>/ (sources: 'me' and 'ai'). Opening a tile loads that page in a holographic box; branded pages also get a radial 'weapon wheel' on the right edge. A page can be hand/AI-built HTML/CSS/JS (custom) or a JSON-driven data page.",
+    "philosophy": "Show data neatly. Prefer few strong sections over many weak ones. Lead with a summary, then stats/charts, then detail tables, then sources. Write real, specific content. Never invent facts presented as real: label fictional or estimated numbers.",
+    "stack": "Vanilla HTML/CSS/JS. No build step, no npm packages needed at runtime."
+  },
+  "site_brief": {
+    "_note": "PRIMARY TASK. The user's AI builds whole pages/sites as FOLDERS. Output = a folder of files the user drops into pages/ai/<slug>/ . (The JSON data-page + bundle system further down is an optional shortcut; ignore it unless asked.)",
+    "deliverable": "One folder: pages/ai/<slug>/ containing index.html (entry) + any css/js/images/video/data files it needs. Then ONE line is added to pages/ai/index.json: the slug. That is the entire installation.",
+    "page_json_required": "Also create pages/ai/<slug>/page.json (metadata for the home tile): {\"type\":\"custom\",\"title\":\"…\",\"subtitle\":\"one-line hook\",\"description\":\"…\",\"icon\":\"chart\",\"accent\":\"magenta|red|violet|turquoise|sky|mint\",\"tags\":[\"a\",\"b\"],\"author\":\"ai\",\"updated\":\"YYYY-MM-DD\", \"entry\":\"index.html\"(optional), \"cover\":\"cover.jpg\"(optional)}. Icons: see icons list below.",
+    "how_the_page_is_shown": "The page loads inside a holographic iframe box on the home field (and also works standalone). It can be ANY site: vanilla, React/Vite build output, three.js, a game, a dashboard, a separate framework. Use RELATIVE paths only (GitHub Pages sub-path hosting). No build step may be required at runtime — commit built output.",
+    "two_modes": {
+      "A_branded (recommended)": "Include the Viewscape scripts so the page gets the same look + the radial wheel. Copy templates/custom/index.html as the starting point (it links ../../../assets/css/*.css and ../../../assets/js/*.js and has <body data-vs-page data-vs-mode=\"custom\">). Mark jump targets with data-vs-section=\"Label\". Style with the theme tokens. Reuse blocks via VS.blocks.render([...], element).",
+      "B_independent": "Fully standalone site, no Viewscape files. It still appears on the field and loads in the hologram box. Optional: add a back button that calls parent.postMessage({vs:'close'},'*'), and open other Viewscape pages with parent.postMessage({vs:'open',ref:'me/welcome'},'*')."
+    },
+    "style_tokens": "CSS vars from assets/css/theme.css: --vs-bg #05030a, --vs-ink, --vs-dim, --accent / --accent-rgb / --accent2, palette --vs-mag #ff2bd6 --vs-red #ff2a55 --vs-vio #9b6bff --vs-tur #2ef2e0 --vs-sky #9fd8ff --vs-mint #a8ffd0; fonts --f-disp (Orbitron) --f-body (Rajdhani) --f-mono (Share Tech Mono). Helpers: class vs-glass (liquid glass panel), vs-btn, vs-chip, vs-tag, vs-title, vs-eyebrow, vs-card, vs-holoframe (hologram corners), data-reveal (scroll-in). Aesthetic: black base, magenta/red primary, small violet/turquoise/baby-blue/mint accents, Iron-Man holographic HUD + Apple liquid glass + retro-tech.",
+    "wheel_for_custom_pages": "Add page-specific wedges in page.json: \"wheel\":{\"label\":\"Tools\",\"extras\":[{\"label\":\"Reset\",\"icon\":\"zap\",\"action\":{\"type\":\"event\",\"name\":\"my:reset\"}}]} and listen with document.addEventListener('my:reset', …). Actions: page, link, url, scroll, copy, accent, event.",
+    "media_and_links": "Videos: <video src=\"clip.mp4\" controls> or YouTube/Vimeo iframes. Multiple paragraphs, images, files: plain HTML. Link to other Viewscape pages with VS.nav.open('me/welcome') (branded mode) or the postMessage above; link to files with relative hrefs.",
+    "checklist": [
+      "Folder name = slug ([a-z0-9-], <=48 chars) and listed in pages/ai/index.json.",
+      "page.json exists with title + type.",
+      "index.html opens correctly from its own folder.",
+      "All paths relative; no leading slash; no localhost URLs.",
+      "If using the Viewscape scripts the relative depth is exactly ../../../assets/ .",
+      "Mobile friendly: leave ~4.5rem of right padding on small screens so the wheel orb doesn't cover content (class vs-wrap does this)."
+    ],
+    "reply_format": "Return the files as separate code blocks, each preceded by its full path (e.g. pages/ai/my-site/index.html). Do not wrap in JSON."
+  },
+  "folder_structure": {
+    "viewscape.config.json": "Names the SOURCE folders (who owns pages): e.g. 'me' and 'ai'. AI always uses source 'ai' unless told otherwise.",
+    "assets/": "The framework library (css/ js/). NEVER edit or copy it into a page.",
+    "pages/<source>/index.json": "The list of page slugs shown on the home field for that source.",
+    "pages/<source>/<slug>/": "One page. Contains page.json (+ index.html) and any media/data files it needs.",
+    "templates/": "page/ (data page) and custom/ (hand-built page) starters used by the CLI and Studio.",
+    "studio/": "In-browser tool: paste a bundle, preview it, download a zip.",
+    "tools/vs.mjs": "CLI: new / remove / hide / show / import / validate / serve."
+  },
+  "output_contract": {
+    "instruction": "Return ONE JSON object (no markdown fences, no commentary) in this shape. For several pages return a JSON array of such objects.",
+    "shape": {
+      "source": "ai",
+      "slug": "lowercase-slug-with-dashes (<=48 chars, [a-z0-9-])",
+      "page": {
+        "...": "the page.json content, see page_json"
+      },
+      "files": {
+        "optional/relative/path.json": "string content, or a JSON object (it will be stringified). Use for data files referenced by blocks via `src`.",
+        "style.css": "optional extra page CSS (rarely needed)"
+      }
+    },
+    "rules": [
+      "`slug` must be unique and URL-safe.",
+      "Paths inside blocks (src, href, image...) are RELATIVE to the page folder, e.g. \"data/sales.json\". Never use absolute paths or leading slashes.",
+      "Binary media (images/videos) cannot be in the bundle: reference files the user will add (state the filenames in a callout block) or use https:// URLs / YouTube / Vimeo links.",
+      "Valid JSON only: double quotes, no comments, no trailing commas.",
+      "Put the finished date in page.updated as YYYY-MM-DD.",
+      "Do not include `entry` unless you are making a custom page."
+    ]
+  },
+  "page_json": {
+    "required": [
+      "title",
+      "sections"
+    ],
+    "fields": {
+      "title": "string — shown on tile + page header",
+      "subtitle": "string — one-line hook (tile + header). Keep < 90 chars.",
+      "description": "string — a short paragraph. Markdown-lite allowed.",
+      "icon": "icon name (see icons) OR a single emoji/glyph",
+      "accent": "magenta | red | violet | turquoise | sky | mint  (default magenta)",
+      "tags": "array of short strings (max 3 shown on tile)",
+      "author": "'ai' or 'me'",
+      "updated": "YYYY-MM-DD",
+      "cover": "optional image/video path (relative) for tile + header background",
+      "type": "'data' (default) or 'custom'",
+      "wheel": {
+        "label": "name of the extras sub-wheel",
+        "extras": "array (max 8) of { label, icon, hint?, action }  — extra wedges for this page"
+      },
+      "sections": "array of { id?, title, description?, icon?, blocks: [...] } — each section becomes a numbered chapter AND a wheel jump-target"
+    },
+    "icons": [
+      "home",
+      "grid",
+      "list",
+      "next",
+      "prev",
+      "palette",
+      "link",
+      "external",
+      "expand",
+      "sparkle",
+      "search",
+      "info",
+      "shuffle",
+      "top",
+      "eye",
+      "settings",
+      "filter",
+      "user",
+      "bot",
+      "close",
+      "back",
+      "play",
+      "layers",
+      "zap",
+      "book",
+      "star",
+      "download",
+      "copy",
+      "code",
+      "film",
+      "more",
+      "chart",
+      "cube",
+      "wave",
+      "check"
+    ],
+    "wheel_actions": {
+      "page": "{ \"type\":\"page\", \"ref\":\"ai/other-slug\" }  open another page in the hologram",
+      "link": "{ \"type\":\"link\", \"href\":\"relative/or/absolute\" }  navigate this frame",
+      "url": "{ \"type\":\"url\", \"href\":\"https://…\" }  new tab",
+      "scroll": "{ \"type\":\"scroll\", \"id\":\"sec-<section id>\" }  jump (section ids are prefixed 'sec-')",
+      "copy": "{ \"type\":\"copy\", \"text\":\"…\", \"message\":\"Copied\" }",
+      "accent": "{ \"type\":\"accent\", \"value\":\"mint\" }",
+      "event": "{ \"type\":\"event\", \"name\":\"my:event\" }  dispatch a DOM event (custom pages)"
+    }
+  },
+  "text_formatting": {
+    "inline": "**bold**  *italic*  ==highlight==  ~~strike~~  `code`  [label](url-or-relative-file)  ![alt](relative-image)",
+    "page_link": "[[source/slug|label]] opens another Viewscape page inside the hologram.",
+    "paragraphs": "Use block `text` with `paragraphs: [\"p1\",\"p2\"]` OR one `text` string with blank lines between paragraphs (also supports # headings, - lists, 1. lists, > quotes, ``` code fences). A bare string inside `blocks` is shorthand for a paragraph."
+  },
+  "blocks": {
+    "_note": "Every block is { \"type\": \"…\", …props, accent?, label?, id? }. `label` adds a small eyebrow above it. Blocks whose data is large can use `src` pointing to a JSON file (ship it in `files`).",
+    "text": {
+      "props": "paragraphs[] | text, lead?, align?",
+      "example": {
+        "type": "text",
+        "paragraphs": [
+          "First.",
+          "Second."
+        ]
+      }
+    },
+    "heading": {
+      "props": "text, level(2-4), eyebrow?",
+      "example": {
+        "type": "heading",
+        "level": 3,
+        "text": "Details"
+      }
+    },
+    "hero": {
+      "props": "title, subtitle?, eyebrow?, tags[]?, image?|video?, cta[{label,href|page,ghost?}]?"
+    },
+    "callout": {
+      "props": "tone(info|ok|warn|hot), title?, text|paragraphs[]",
+      "use": "key takeaway, warning, caveats, 'files to add'"
+    },
+    "quote": {
+      "props": "text, author?, role?"
+    },
+    "list": {
+      "props": "items[], ordered?"
+    },
+    "kv": {
+      "props": "data:{key:value} | items[{key,value}]",
+      "use": "specs, facts"
+    },
+    "tags": {
+      "props": "items[]"
+    },
+    "divider": {
+      "props": "label?"
+    },
+    "spacer": {
+      "props": "size(px)?"
+    },
+    "code": {
+      "props": "code, lang?, title?",
+      "note": "has a copy button"
+    },
+    "stats": {
+      "props": "items[{label,value,prefix?,suffix?,decimals?,delta?,note?,icon?}]",
+      "use": "headline KPIs; numeric `value` count-up animates; `delta` starting with '-' shows red"
+    },
+    "chart": {
+      "props": "kind(bar|line|area|donut|radar|spark), title?, data, caption?, height?, multicolor?, centerLabel?",
+      "data_shapes": {
+        "simple": "[{\"label\":\"A\",\"value\":3,\"color\":\"#ff2bd6\"?}, …]",
+        "multi_series": "{\"labels\":[\"Jan\",\"Feb\"],\"series\":[{\"name\":\"X\",\"values\":[1,2],\"color\":\"#2ef2e0\"?}]}"
+      },
+      "guidance": "bar=compare categories · line/area=trend over time · donut=parts of a whole (<=6 slices) · radar=profile on 3-8 axes · spark=tiny trend"
+    },
+    "table": {
+      "props": "columns[] , rows[][] | rows[{col:value}], caption?, search?(default on if >6 rows)",
+      "note": "sortable, filterable; numbers auto-format; cells accept inline markdown"
+    },
+    "timeline": {
+      "props": "items[{date,title,text?,tag?}]"
+    },
+    "progress": {
+      "props": "items[{label,value,max?,display?}]"
+    },
+    "cards": {
+      "props": "items[{title,text?,icon?,tag?,meta?,image?,href?|page?}], min?(px)"
+    },
+    "links": {
+      "props": "items[{title,text?,href?|page?,icon?,tag?}]",
+      "use": "navigation cards to other pages (page:'source/slug') or files/URLs"
+    },
+    "link": {
+      "props": "title, text?, href|page"
+    },
+    "file": {
+      "props": "src, title?, text?",
+      "use": "downloadable file card (relative path)"
+    },
+    "image": {
+      "props": "src, alt?, caption?",
+      "note": "click opens lightbox"
+    },
+    "gallery": {
+      "props": "items[{src,caption?}]"
+    },
+    "video": {
+      "props": "src, caption?, poster?, ratio?('16/9'), autoplay?, loop?, muted?",
+      "note": "src may be a relative .mp4/.webm OR a YouTube/Vimeo URL (auto-embeds)"
+    },
+    "audio": {
+      "props": "src, caption?"
+    },
+    "embed": {
+      "props": "src, caption?, ratio?",
+      "note": "iframe; only https sites that allow embedding"
+    },
+    "md": {
+      "props": "src | text",
+      "use": "load a markdown file from the page folder (ship it in `files`)"
+    },
+    "include": {
+      "props": "src",
+      "use": "pull blocks from another JSON file (array of blocks, or {blocks}/{sections})"
+    },
+    "tabs": {
+      "props": "items[{title,icon?,blocks[]}]",
+      "use": "alternate views of the same topic"
+    },
+    "accordion": {
+      "props": "items[{title,open?,blocks[]}]",
+      "use": "FAQs, long detail"
+    },
+    "columns": {
+      "props": "columns[{blocks[]}], ratio?('2fr 1fr')",
+      "use": "side-by-side; collapses on mobile"
+    },
+    "json": {
+      "props": "data | src",
+      "use": "collapsible raw-data inspector"
+    },
+    "html": {
+      "props": "html",
+      "use": "last resort raw HTML (no scripts)"
+    }
+  },
+  "design_guidance": [
+    "Section 1 = 'Summary' with a callout (key finding) + 3-4 stats.",
+    "Use 3-6 sections. Give each a short `title` and an `icon` — they become wheel wedges.",
+    "Pick ONE accent per page that fits the topic (magenta/red = intense, turquoise = tech/data, violet = abstract/creative, sky = calm, mint = growth/health).",
+    "Every chart gets a `title`. Keep labels short (<12 chars).",
+    "Write multiple real paragraphs where explanation is needed; don't cram prose into stats or tables.",
+    "Always finish with a 'Sources & notes' section (links block or list) when data is real.",
+    "If numbers are illustrative say so in a callout (tone: warn)."
+  ],
+  "workflows": {
+    "new_page_by_ai_data_bundle": [
+      "User gives a topic and (optionally) data.",
+      "AI returns the bundle JSON (see output_contract).",
+      "User opens /studio/ → paste → Validate → Download zip → drop zip contents into the repo root (merge), or run: node tools/vs.mjs import bundle.json",
+      "Commit + push. The tile appears on the home field."
+    ],
+    "update_existing_page": "Return the same slug with the full new `page`. Import with --overwrite (Studio does this automatically).",
+    "remove_page": [
+      "node tools/vs.mjs remove <source> <slug> --yes   (deletes folder + listing)",
+      "node tools/vs.mjs hide <source> <slug>           (keeps files, hides from field)",
+      "No CLI? Delete pages/<source>/<slug>/ and remove the slug from pages/<source>/index.json."
+    ],
+    "add_page_manually": [
+      "node tools/vs.mjs new <source> <slug> --title \"My Page\"   (add --custom for your own HTML/CSS/JS)",
+      "Or copy templates/page → pages/<source>/<slug>/ and add the slug to pages/<source>/index.json."
+    ],
+    "add_a_source_folder": "node tools/vs.mjs source add <id> --label \"Name\" --icon bot --accent violet",
+    "custom_or_separate_framework_page": "Set page.json \"type\":\"custom\" and use any index.html/css/js (or a whole third-party framework build) inside the page folder. Optional `entry` in page.json names the HTML file. Include the Viewscape scripts (see templates/custom/index.html) to get the wheel + ambience; omit them for a totally independent page — it still appears on the field and loads in the hologram box."
+  },
+  "page_types": {
+    "data": "page.json drives everything (default, preferred for AI).",
+    "custom": "page.json has only metadata (title, subtitle, icon, accent, tags, wheel…). The folder owns index.html + page.css + page.js. Use VS.blocks.render([...], el) to reuse library blocks."
+  },
+  "quality_checklist": [
+    "JSON parses. slug is [a-z0-9-].",
+    "page.title and at least one section with blocks.",
+    "All block types come from the list above. Charts have numeric data.",
+    "No absolute/leading-slash paths. No <script> in html blocks.",
+    "Sections have titles (wheel labels) and icons from the icon list."
+  ],
+  "example_bundle": {
+    "source": "ai",
+    "slug": "coffee-brief",
+    "page": {
+      "title": "Coffee Brief",
+      "subtitle": "Where the world's coffee comes from.",
+      "icon": "☕",
+      "accent": "red",
+      "tags": [
+        "agriculture",
+        "trade"
+      ],
+      "author": "ai",
+      "updated": "2026-11-16",
+      "sections": [
+        {
+          "title": "Summary",
+          "icon": "info",
+          "blocks": [
+            {
+              "type": "callout",
+              "tone": "info",
+              "title": "Key finding",
+              "text": "Three countries grow over half of the world's coffee."
+            },
+            {
+              "type": "stats",
+              "items": [
+                {
+                  "label": "Global output",
+                  "value": 10.5,
+                  "suffix": " Mt",
+                  "decimals": 1
+                },
+                {
+                  "label": "Top 3 share",
+                  "value": 55,
+                  "suffix": "%"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "paragraphs": [
+                "Coffee is grown in a belt around the equator.",
+                "Brazil alone supplies roughly a third of the world's beans."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Producers",
+          "icon": "chart",
+          "blocks": [
+            {
+              "type": "chart",
+              "kind": "bar",
+              "title": "Output by country (Mt, approx.)",
+              "data": [
+                {
+                  "label": "Brazil",
+                  "value": 3.7
+                },
+                {
+                  "label": "Vietnam",
+                  "value": 1.8
+                },
+                {
+                  "label": "Colombia",
+                  "value": 0.8
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "files": {}
+  },
+  "start_prompt_for_user": "Paste HANDOVER.json, then: \"Build a Viewscape One page called <NAME> about <TOPIC>. Mode A (branded). Accent <colour>. It should <what it must show/do>. Reply with each file in its own code block with its full path.\""
+}

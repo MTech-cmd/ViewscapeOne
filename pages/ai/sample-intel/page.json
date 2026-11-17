@@ -1,0 +1,72 @@
+{
+  "title": "Sample Intel",
+  "subtitle": "What an AI-generated data page looks like.",
+  "description": "A fictional briefing on orbital data-relay traffic. Numbers are invented — it exists to show charts, tables, media and linking.",
+  "icon": "bot",
+  "accent": "turquoise",
+  "tags": ["sample", "charts", "ai"],
+  "author": "ai",
+  "updated": "2026-11-16",
+  "wheel": {
+    "label": "Intel",
+    "extras": [
+      { "label": "Copy summary", "icon": "copy", "action": { "type": "copy", "text": "Relay traffic grew 38% over the year, led by the polar network.", "message": "Summary copied" } },
+      { "label": "Charts", "icon": "chart", "action": { "type": "scroll", "id": "sec-charts" } },
+      { "label": "Welcome", "icon": "book", "action": { "type": "page", "ref": "me/welcome" } }
+    ]
+  },
+  "sections": [
+    {
+      "id": "summary",
+      "title": "Summary",
+      "icon": "info",
+      "blocks": [
+        { "type": "callout", "tone": "ok", "title": "Headline", "text": "Relay traffic grew **38%** year on year, driven by the polar network." },
+        { "type": "text", "paragraphs": [
+          "Traffic across the relay constellation climbed steadily through the year, with the sharpest rise in the third quarter.",
+          "Latency fell while capacity grew — an unusual pairing that the analysts attribute to the new routing firmware.",
+          "See the [[me/welcome|Welcome page]] for how this page is built."
+        ] },
+        { "type": "stats", "items": [
+          { "label": "Traffic", "value": 4820, "suffix": " TB", "delta": "+38%", "icon": "wave" },
+          { "label": "Latency", "value": 42, "suffix": " ms", "delta": "-11%", "icon": "zap" },
+          { "label": "Nodes online", "value": 187, "icon": "cube" },
+          { "label": "Availability", "value": 99.97, "suffix": "%", "decimals": 2, "icon": "check" }
+        ] }
+      ]
+    },
+    {
+      "id": "charts",
+      "title": "Charts",
+      "icon": "chart",
+      "blocks": [
+        { "type": "columns", "ratio": "3fr 2fr", "columns": [
+          { "blocks": [ { "type": "chart", "kind": "area", "title": "Monthly traffic (TB)", "data": { "labels": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct"], "series": [ { "name": "Polar", "values": [210, 240, 260, 300, 340, 410, 480, 560, 610, 690], "color": "#2ef2e0" }, { "name": "Equatorial", "values": [300, 310, 320, 330, 350, 360, 380, 390, 400, 420], "color": "#ff2bd6" } ] } } ] },
+          { "blocks": [ { "type": "chart", "kind": "donut", "title": "Share by region", "centerLabel": "TB", "data": [ { "label": "Polar", "value": 2100 }, { "label": "Equatorial", "value": 1500 }, { "label": "Mid-lat", "value": 900 }, { "label": "Deep", "value": 320 } ] } ] }
+        ] },
+        { "type": "columns", "columns": [
+          { "blocks": [ { "type": "chart", "kind": "bar", "title": "Outages per quarter", "data": [ { "label": "Q1", "value": 9 }, { "label": "Q2", "value": 6 }, { "label": "Q3", "value": 4 }, { "label": "Q4", "value": 2 } ], "multicolor": true } ] },
+          { "blocks": [ { "type": "chart", "kind": "radar", "title": "Network health", "data": { "labels": ["Speed", "Uptime", "Coverage", "Security", "Cost", "Support"], "series": [ { "name": "Now", "values": [82, 96, 74, 90, 60, 78], "color": "#ff2bd6" }, { "name": "Target", "values": [90, 99, 85, 95, 70, 85], "color": "#9fd8ff" } ] } } ] }
+        ] }
+      ]
+    },
+    {
+      "id": "data",
+      "title": "Data & media",
+      "icon": "grid",
+      "blocks": [
+        { "type": "table", "columns": ["Node", "Region", "Load %", "Latency ms", "Status"], "rows": [
+          ["Aster-1", "Polar", 82, 38, "online"], ["Aster-2", "Polar", 77, 41, "online"], ["Boreal-4", "Polar", 91, 44, "degraded"],
+          ["Cirrus-3", "Equatorial", 55, 36, "online"], ["Cirrus-7", "Equatorial", 61, 39, "online"], ["Delta-2", "Mid-lat", 48, 47, "online"],
+          ["Ember-9", "Deep", 33, 88, "online"], ["Flux-5", "Mid-lat", 70, 52, "maintenance"] ], "caption": "Filter and sort — it's live." },
+        { "type": "video", "src": "https://www.youtube.com/watch?v=aqz-KE-bpKQ", "caption": "Videos: YouTube/Vimeo links embed automatically; local .mp4 files get a native player." },
+        { "type": "timeline", "items": [
+          { "date": "Q1", "title": "Constellation expansion", "text": "Twelve new polar nodes were brought online." },
+          { "date": "Q2", "title": "Routing firmware 4.2", "text": "Adaptive path selection reduced median latency.", "tag": "milestone" },
+          { "date": "Q3", "title": "Traffic surge", "text": "Peak demand exceeded forecast by 22%." }
+        ] },
+        { "type": "json", "label": "raw data", "data": { "report": "sample-intel", "generated": "2026-11-16", "metrics": { "traffic_tb": 4820, "latency_ms": 42 } } }
+      ]
+    }
+  ]
+}

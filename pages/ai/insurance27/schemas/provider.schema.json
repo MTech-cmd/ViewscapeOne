@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/dhip-2027/schemas/insurance-provider.schema.json",
+  "title": "Insurance Provider",
+  "description": "Customer-facing provider or brand. Group relationship supplied as an initial research pairing and awaiting verification.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "provider_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "group_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legal_insurer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provider_type": {
+      "type": "string",
+      "enum": [
+        "brand",
+        "insurer",
+        "other",
+        "unknown"
+      ]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rating": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 5
+        },
+        "explanation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_-]*$"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "last_verified": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      },
+      "required": [
+        "rating",
+        "explanation",
+        "claim_ids",
+        "limitations",
+        "confidence",
+        "last_verified"
+      ]
+    },
+    "policy_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[a-z][a-z0-9_-]*$"
+      }
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "partially_verified",
+        "verified"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "provider_id",
+    "group_id",
+    "name",
+    "legal_insurer",
+    "provider_type",
+    "assessment",
+    "policy_ids",
+    "verification_status",
+    "notes"
+  ]
+}

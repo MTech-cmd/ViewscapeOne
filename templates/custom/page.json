@@ -1,0 +1,11 @@
+{
+  "type": "custom",
+  "title": "{{TITLE}}",
+  "subtitle": "One-line hook shown on the home tile.",
+  "icon": "code",
+  "accent": "violet",
+  "tags": ["custom"],
+  "author": "{{SOURCE}}",
+  "updated": "{{DATE}}",
+  "wheel": { "label": "Actions", "extras": [] }
+}

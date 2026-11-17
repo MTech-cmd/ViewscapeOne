@@ -1,0 +1,3 @@
+.lab-card { padding: 1rem; margin: 1.5rem 0 3rem; }
+.lab-card canvas { width: 100%; height: auto; border-radius: 14px; background: radial-gradient(circle at 50% 50%, rgba(var(--accent-rgb), .15), rgba(0, 0, 0, .55)); }
+.lab-bar { display: flex; gap: .7rem; align-items: center; margin-top: .9rem; flex-wrap: wrap; }

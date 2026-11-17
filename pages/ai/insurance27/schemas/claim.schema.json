@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/dhip-2027/schemas/research-claim.schema.json",
+  "title": "Research Claim",
+  "description": "Provisional research finding attached to exactly one group, provider or policy. Res review required.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "entity_level": {
+      "type": "string",
+      "enum": [
+        "group",
+        "provider",
+        "policy"
+      ]
+    },
+    "entity_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_-]*$"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "finding": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[a-z][a-z0-9_-]*$"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "last_verified": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "conflicting_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[a-z][a-z0-9_-]*$"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "supported",
+        "contested",
+        "withdrawn",
+        "unknown"
+      ]
+    }
+  },
+  "required": [
+    "claim_id",
+    "entity_level",
+    "entity_id",
+    "category",
+    "claim",
+    "finding",
+    "source_ids",
+    "limitations",
+    "confidence",
+    "last_verified",
+    "conflicting_claim_ids",
+    "status"
+  ]
+}

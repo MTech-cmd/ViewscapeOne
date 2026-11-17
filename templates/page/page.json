@@ -1,0 +1,23 @@
+{
+  "title": "{{TITLE}}",
+  "subtitle": "One-line hook shown on the tile and the page header.",
+  "description": "A short paragraph of context. Markdown-lite works: **bold**, *italic*, `code`, [links](https://example.com).",
+  "icon": "layers",
+  "accent": "magenta",
+  "tags": ["new"],
+  "author": "{{SOURCE}}",
+  "updated": "{{DATE}}",
+  "sections": [
+    {
+      "title": "Overview",
+      "icon": "info",
+      "blocks": [
+        { "type": "text", "paragraphs": ["First paragraph.", "Second paragraph — add as many as you like."] },
+        { "type": "stats", "items": [
+          { "label": "Metric A", "value": 128, "delta": "+12%" },
+          { "label": "Metric B", "value": 4.7, "decimals": 1 }
+        ] }
+      ]
+    }
+  ]
+}
