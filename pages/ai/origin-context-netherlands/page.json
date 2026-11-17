@@ -1,0 +1,16 @@
+{
+  "author": "ai",
+  "updated": "2026-11-17",
+  "type": "custom",
+  "title": "Crime X Migration",
+  "subtitle": "Origin, age and socioeconomic context in Dutch suspect statistics.",
+  "description": "An interactive research dashboard exploring the relationship between origin and registered suspects in the Netherlands, using CBS and WODC sources.",
+  "icon": "chart",
+  "accent": "magenta",
+  "tags": [
+    "CBS data",
+    "Crime research",
+    "Socioeconomic"
+  ],
+  "entry": "index.html"
+}
