@@ -1,0 +1,5 @@
+claim_id,public_claim,testable_proposition,initial_status
+CLM-01,"88% of eligible contacts are resolved at first contact","88% of member issues are resolved without a repeat contact or further action",Disputed
+CLM-02,"One call, one answer","A member can complete the relevant service journey through one contact with Frequency",Partly supported
+CLM-03,"92% of locations show a slot within 14 days","92% of members can obtain a suitable appointment within 14 days",Partly supported
+CLM-04,"The Frequency group provides one integrated service","One legal entity controls all service and decision responsibilities",Disputed

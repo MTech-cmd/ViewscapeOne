@@ -1,0 +1,19 @@
+{
+  "type": "custom",
+  "title": "GitHub",
+  "subtitle": "This project's repository — README, files and commits, inside the hologram.",
+  "icon": "github",
+  "accent": "violet",
+  "tags": ["source", "readme"],
+  "author": "sys",
+  "updated": "2026-11-18",
+  "wheel": {
+    "label": "Repo",
+    "extras": [
+      { "label": "Refresh", "icon": "zap", "hint": "clear cache", "action": { "type": "event", "name": "repo:refresh" } },
+      { "label": "Open on GitHub", "icon": "external", "hint": "new tab", "action": { "type": "event", "name": "repo:open" } },
+      { "label": "Change repo", "icon": "search", "action": { "type": "event", "name": "repo:focus" } },
+      { "label": "About", "icon": "info", "action": { "type": "page", "ref": "sys/about" } }
+    ]
+  }
+}

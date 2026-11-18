@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const app=path.join(root,'app');
+const tutorial=await fs.readFile(path.join(app,'tutorial.html'),'utf8');
+test('Tutorial contains nine interactive tutorial modules',()=>{assert.equal((tutorial.match(/class="t-module/g)||[]).length,9);for(const s of ['Understand the assignment','Understand the organisation','Deconstruct claims','Find and evaluate sources','Build the evidence trail','Assess findings','Write the investigation','Follow incentives','Keep competing explanations alive'])assert.ok(tutorial.includes(s));assert.match(tutorial,/localStorage/);});
+test('Solstice has website, wiki, research desk and five source PDFs',async()=>{for(const p of ['solstice/website/index.html','solstice/wiki/index.html','solstice/research/desk.html'])await fs.access(path.join(app,'research-lab',p));const files=await fs.readdir(path.join(app,'research-lab/solstice/Sources'));assert.equal(files.filter(x=>x.endsWith('.pdf')).length,5);});
+test('facilitator answers remain outside served application',async()=>{await fs.access(path.join(root,'facilitator-only/SOLSTICE_TUTORIAL_GUIDE.md'));assert.doesNotMatch(tutorial,/SOLSTICE_TUTORIAL_GUIDE|Expected findings/);});
+test('milestone version and roadmap are calendar-day independent',async()=>{const pkg=JSON.parse(await fs.readFile(path.join(root,'package.json'),'utf8'));assert.equal(pkg.version.split('+')[0],'0.1.4');const roadmap=await fs.readFile(path.join(root,'ROADMAP.md'),'utf8');assert.match(roadmap,/V0\.1\.3 — Worked Example/);assert.doesNotMatch(roadmap,/\| Day \|/);});

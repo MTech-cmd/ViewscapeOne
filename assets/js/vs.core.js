@@ -6,7 +6,7 @@
 (function () {
   'use strict';
   const VS = window.VS = window.VS || {};
-  VS.version = '1.0.0';
+  VS.version = '1.1.0';
 
   /* ---------- root detection (works on GH Pages sub-paths) ---------- */
   const me = document.currentScript || [...document.scripts].find(s => /vs\.core\.js/.test(s.src));
@@ -49,7 +49,7 @@
   };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   VS.prefs = {
-    get: k => VS.store.get('pref.' + k, { fx: !reduced, scan: true, motion: !reduced }[k]),
+    get: k => VS.store.get('pref.' + k, { fx: !reduced, scan: true, motion: !reduced, perf: 'auto', wheelY: 'mid', haptic: true, awake: false }[k]),
     set(k, v) { VS.store.set('pref.' + k, v); VS.prefs.apply(); VS.emit('prefs', { k, v }); },
     toggle(k) { VS.prefs.set(k, !VS.prefs.get(k)); return VS.prefs.get(k); },
     apply() {
@@ -66,7 +66,7 @@
   VS.ACCENTS = ['magenta', 'red', 'violet', 'turquoise', 'sky', 'mint'];
   VS.accent = {
     get: () => document.documentElement.dataset.accent || 'magenta',
-    set(n) { if (!VS.ACCENTS.includes(n)) n = 'magenta'; document.documentElement.dataset.accent = n; VS.emit('accent', n); return n; },
+    set(n, silent) { if (!VS.ACCENTS.includes(n)) n = 'magenta'; document.documentElement.dataset.accent = n; if (!silent) VS.emit('accent', n); return n; },
     cycle() { const i = VS.ACCENTS.indexOf(VS.accent.get()); return VS.accent.set(VS.ACCENTS[(i + 1) % VS.ACCENTS.length]); }
   };
 
@@ -104,6 +104,10 @@
     chart: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-5M12 16V8M16 16v-8"/>',
     cube: '<path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 12l9-5M12 12L3 7M12 12v10"/>',
     wave: '<path d="M2 12c2-6 4-6 5 0s3 6 5 0 3-6 5 0 3 6 5 0"/>',
+    columns: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/>',
+    cast: '<path d="M3 8V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2h-5"/><path d="M3 12a8 8 0 018 8M3 16a4 4 0 014 4"/><circle cx="3.5" cy="20" r=".8"/>',
+    github: '<path d="M9 19c-4 1.5-4-2-6-2m12 4v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.500 1.300a12.300 12.300 0 00-6.200 0C6.500 2.800 5.400 3.100 5.400 3.100a4.200 4.200 0 00-.1 3.200A4.600 4.600 0 004 9.500c0 4.600 2.700 5.700 5.500 6-.6.600-.6 1.200-.5 2V21"/>',
+    battery: '<rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2"/>',
     dot: '<circle cx="12" cy="12" r="3"/>', check: '<path d="M5 12l5 5 9-10"/>',
     off: '<path d="M5 5l14 14"/><circle cx="12" cy="12" r="9"/>'
   };
@@ -189,8 +193,8 @@
     }
   };
   document.addEventListener('click', e => {
-    const a = e.target.closest && e.target.closest('[data-vs-page]');
-    if (a) { e.preventDefault(); VS.nav.open(a.dataset.vsPage); }
+    const a = e.target.closest && e.target.closest('a[data-vs-page]');
+    if (a && a.dataset.vsPage) { e.preventDefault(); VS.nav.open(a.dataset.vsPage); }
   });
 
   /* ---------- registry (home + prev/next) ---------- */

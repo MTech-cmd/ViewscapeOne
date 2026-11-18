@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><script id="coverage-path-resolver">(function(){const p=location.pathname;const marker='/app/';const i=p.indexOf(marker);const base=i>=0?p.slice(0,i+marker.length):'/';window.COVERAGE_APP_BASE=base;const attrs=['href','src','action','poster','data'];function fix(el){for(const a of attrs){const v=el.getAttribute&&el.getAttribute(a);if(v&&v.startsWith('/')&&!v.startsWith('//')&&!v.startsWith('/#'))el.setAttribute(a,base+v.slice(1));}}function scan(node){if(node.nodeType!==1)return;fix(node);node.querySelectorAll&&node.querySelectorAll('[href^="/"],[src^="/"],[action^="/"],[poster^="/"],[data^="/"]').forEach(fix);}document.addEventListener('DOMContentLoaded',()=>scan(document.documentElement),{once:true});new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(scan))).observe(document.documentElement,{childList:true,subtree:true});window.coveragePath=path=>base+String(path||'').replace(/^\/+/, '');})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101329"><meta name="description" content="Coverage Labs — an open fictional investigative journalism playground. Learn, investigate, browse the evidence."><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"><title>Coverage Labs — Open Investigation Playground</title>
+
+
+
+<style id="cl-146-landing-refresh">
+:root{--cl-blue:#56b8d9;--cl-teal:#56e5d4;--cl-violet:#a58be7;--cl-lime:#d8ff68;--cl-ink:#f3f7fb;--cl-muted:#b6c5d4}
+body{background:radial-gradient(ellipse at 9% 0%,#172b47 0,transparent 34%),radial-gradient(ellipse at 95% 22%,#292038 0,transparent 27%),#09111d;color:var(--cl-ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+.hero h1{font-weight:950;letter-spacing:-.095em}.hero h1 span{color:transparent;-webkit-text-stroke:1.6px #b6c6d6}
+.hero-lede,.section-intro{color:#b6c5d4;line-height:1.8}.hero-console{background:linear-gradient(145deg,#172a40e8,#101a2ae8);border:1px solid #ffffff25}
+.console-core{background:radial-gradient(circle at 30% 22%,#374b64,#15243a 65%);color:var(--cl-lime)}
+.console-core span{color:var(--cl-lime)}.console-stats strong{color:var(--cl-aqua,var(--cl-teal))}
+.section-shell{width:min(1220px,calc(100% - 48px));margin-inline:auto;padding-top:40px;padding-bottom:42px}
+.section-heading h2{color:#f3f7fb}.section-heading h2 em{color:var(--cl-teal)}
+.choice-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.choice{display:flex;flex-direction:column;min-height:245px;padding:23px;border-radius:13px;text-decoration:none;color:#14202b;background:linear-gradient(150deg,#f7fbff,#e1edf4);border:1px solid #c8dce6;box-shadow:0 8px 0 #29465b;transition:transform .18s,box-shadow .18s}
+.choice:hover{transform:translateY(-4px);box-shadow:0 12px 0 #29465b}
+.choice .ey{font-size:9px;font-weight:950;letter-spacing:.15em;color:#286b83}
+.choice h3{font-size:27px;line-height:1.1;margin:15px 0 8px;letter-spacing:-.045em;color:#142c3c}
+.choice p{color:#526777;line-height:1.65;font-size:13px}.choice .go{margin-top:auto;color:#176d83;font-size:10px;font-weight:950;letter-spacing:.08em}
+.choice-art{display:grid;place-items:center;width:43px;height:43px;margin-top:5px;border-radius:10px;background:#d8edf2;color:#176b7d;font-size:22px;font-weight:900;box-shadow:inset 0 0 0 1px #fff}
+.choice.walkthrough{background:linear-gradient(145deg,#e1faf4,#c6ece8);box-shadow:0 8px 0 #26777c}
+.choice.academy{background:linear-gradient(145deg,#e2ddff,#c8dff4);box-shadow:0 8px 0 #5a5792;border-color:#d4d0fa}
+.choice.academy .ey,.choice.academy .go{color:#514b93}.choice.academy .choice-art{background:#f2efff;color:#6353a4}
+.choice.exam{background:linear-gradient(145deg,#e2f0ff,#d7e3f8);box-shadow:0 8px 0 #456d98}
+.world-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.world{padding:0;overflow:hidden;border-radius:14px;background:linear-gradient(155deg,#172a40,#102033);border:1px solid #ffffff24;box-shadow:0 12px 30px #020a1444;min-height:230px}
+.world-art-mini{height:96px;position:relative;display:block;overflow:hidden;padding:0}
+.world-art-mini img{width:100%;height:100%;display:block;object-fit:cover}
+.world-art-mini span{position:absolute;left:13px;bottom:10px;padding:5px 8px;border-radius:4px;background:#f5fbf4e8;color:#173b50;font-size:8px;font-weight:950;letter-spacing:.12em}
+.world h3{font-size:22px;margin:14px 17px 4px;color:#f3f7fb}.world p{margin:0 17px 13px;color:#b6c5d4;font-size:12px;line-height:1.6}
+.world .world-links{display:flex;flex-wrap:wrap;gap:12px;padding:0 17px 17px}.world a{color:var(--cl-teal);font-size:11px;font-weight:900;text-decoration:none}
+.world.simple-world{background:#f2f7f8;color:#183346;border-color:#d6e5eb;min-height:190px;box-shadow:0 8px 0 #284c60}
+.world.simple-world .world-art-mini{height:60px}.world.simple-world h3{color:#183346}.world.simple-world p{color:#526979}.world.simple-world a{color:#18728a}
+.world.vindr-world{background:linear-gradient(145deg,#d8f5f3,#b8dff3);color:#15344a;box-shadow:0 8px 0 #287b83}
+.world.vindr-world h3{color:#15344a}.world.vindr-world p{color:#456273}.world.vindr-world a{color:#126c7a}
+.gg-ad{box-shadow:0 8px 0 #2c4c68;border-radius:14px}
+.site-footer{color:#9eb0c2}
+@media(max-width:980px){.choice-grid,.world-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.choice-grid,.world-grid{grid-template-columns:1fr}.hero{padding-top:42px}.choice{min-height:190px}.world{min-height:0}.world-art-mini{height:74px}.main-nav{gap:15px;flex-wrap:wrap}}
+</style>
+
+
+<style id="cl-1461-company-panels">
+.world-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.world-card{overflow:hidden;border:1px solid #ffffff25;border-radius:13px;background:#101d2c;box-shadow:0 18px 48px #0002;min-width:0}
+.world-card .world-art{height:190px;position:relative;overflow:hidden}
+.world-card .world-content{padding:19px}
+.world-card .world-topline{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.world-card .world-label{color:var(--world);font-size:8px;font-weight:950;letter-spacing:.13em}
+.world-card .world-chip{font-size:7px;letter-spacing:.11em;color:#a9b9c8}
+.world-card .world-content h3{margin:13px 0 0;font-size:30px;letter-spacing:-.07em;color:#f3f7fb}
+.world-card .world-subtitle{margin:0 0 14px!important;color:var(--world)!important;font-size:10px!important;font-weight:900}
+.world-card .world-content>p{margin:0;color:#a9b9c8;font-size:11px;line-height:1.75;min-height:77px}
+.world-card .world-method{display:grid;gap:4px;padding:13px 0;margin-top:14px;border-top:1px solid #ffffff1c;border-bottom:1px solid #ffffff1c}
+.world-card .world-method b{font-size:7px;letter-spacing:.15em;color:#8093a5}
+.world-card .world-method span{font-size:10px;color:#d9e3ec}
+.world-card .world-links{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px;padding-top:15px}
+.world-card .world-links a{color:var(--world);font-size:9px;font-weight:900;text-decoration:none}
+.world-card .world-links a:hover{text-decoration:underline}
+.world-noordlicht{--world:#f08cc9}.world-rivierzorg{--world:#63dfd0}.world-kompas{--world:#d99a72}
+.world-card:not(.world-noordlicht):not(.world-rivierzorg):not(.world-kompas){--world:#b6a1ec}
+.world-card .aero-art{background:radial-gradient(circle at 58% 40%,#ffafe1,#d647a0 38%,#59275c 75%,#21182e)}
+.world-card .aero-window{position:absolute;left:17%;top:24%;width:57%;height:50%;border:1px solid #ffffffa1;border-radius:8px;background:linear-gradient(145deg,#ffffff59,#f9cce829);box-shadow:0 15px 40px #250b3d66,inset 0 1px #ffffffbb;backdrop-filter:blur(8px);transform:rotate(-7deg)}
+.world-card .aero-window i{display:inline-block;width:5px;height:5px;margin:7px 0 0 7px;border-radius:50%;background:#fff}
+.world-card .aero-window b{display:block;margin:27px 0 0 15px;color:#fff;font-size:11px;letter-spacing:.15em;text-shadow:0 1px 5px #7b235b}
+.world-card .aero-orb{position:absolute;right:12%;top:12%;width:86px;height:86px;display:grid;place-items:center;border:1px solid #ffffff9c;border-radius:50%;color:#fff;font-size:57px;font-weight:950;box-shadow:inset 0 0 22px #fff8,0 12px 30px #170b30aa;text-shadow:0 2px 9px #5e214b}
+.world-card .aero-caption{position:absolute;bottom:13px;right:17px;color:#fff;font-size:7px;letter-spacing:.2em;font-weight:900}
+.world-card .flow-art{background:radial-gradient(ellipse at 26% 90%,#48c6bc,#12506a 46%,#101b3a 100%)}
+.world-card .flow-orb{position:absolute;border:1px solid #a8fff4aa;border-radius:50%;filter:blur(.3px);box-shadow:inset 0 0 20px #81fff866,0 0 30px #6dfff755}
+.world-card .orb-one{width:166px;height:166px;left:2%;top:9%;background:radial-gradient(circle at 30% 24%,#b4fff577,#2db4bb22 65%,transparent 70%)}
+.world-card .orb-two{width:130px;height:130px;right:13%;top:23%;background:radial-gradient(circle at 28% 25%,#fff7,#50c5d122 60%,transparent 70%)}
+.world-card .flow-panel{position:absolute;right:9%;top:21%;width:47%;height:62%;padding:12px;border:1px solid #b5fff577;border-radius:12px;background:#d7ffff1c;backdrop-filter:blur(8px);box-shadow:0 15px 28px #001c3a66;transform:rotate(6deg)}
+.world-card .flow-panel span{display:block;color:#d6fffb;font-size:7px;letter-spacing:.12em}
+.world-card .flow-panel b{display:block;color:#b6fff0;font-size:10px;margin:4px 0 13px}
+.world-card .flow-panel i{display:block;height:5px;margin:8px 0;border-radius:5px;background:#cfffff80}
+.world-card .flow-panel i:nth-of-type(2){width:75%}.world-card .flow-panel i:nth-of-type(3){width:55%}
+.world-card .flow-caption{position:absolute;bottom:14px;left:17px;color:#c5fff5;font-size:7px;letter-spacing:.18em;font-weight:900}
+.world-card .metro-art{display:grid;grid-template-columns:1fr 1fr 1.2fr 1fr;grid-template-rows:1fr 1fr;gap:6px;padding:17px;background:linear-gradient(130deg,#8f4b3b,#4a2429 72%,#2a1c27)}
+.world-card .metro-tile{display:grid;place-items:center;background:#d17d56;color:#45242a;font-size:12px;font-weight:950;letter-spacing:.08em;box-shadow:inset 0 1px #fff3}
+.world-card .tile-large{grid-row:span 2;background:#e7ad82;font-size:47px}
+.world-card .tile-small{background:#be654e;color:#fff0df}
+.world-card .tile-wide{grid-column:span 2;background:#e6c19c}
+.world-card .tile-tall{grid-row:span 2;background:#9e5546;color:#fff0df;font-size:9px;line-height:1.7}
+.world-card .tile-dot{background:#dba17a;color:#5b2b30;font-size:24px}
+@media(max-width:980px){.world-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.world-grid{grid-template-columns:1fr}.world-card .world-art{height:160px}.world-card .world-content>p{min-height:0}}
+</style>
+
+</head><body>
+<div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
+<header class="site-header shell"><a class="wordmark" href="index.html"><span class="mark"><i></i><i></i><i></i><i></i></span><span>COVERAGE<span class="wordmark-accent">LABS</span><small>OPEN INVESTIGATIVE JOURNALISM PLAYGROUND</small></span></a><nav class="main-nav"><a href="workspace/index.html">ACADEMY</a><a href="tutorial.html">TUTORIAL</a><a href="exam.html">EXAM</a><a href="search/index.html">VINDR</a><a href="wiki/index.html">WIKI</a></nav><span class="edition-tag">PUBLIC SIMULATION · V0.1.4.6.1</span></header>
+<main><section class="hero shell"><div class="hero-copy"><p class="eyebrow"><span class="pulse-dot"></span> OPEN INVESTIGATION PLAYGROUND</p><h1>Look closer.<br><span>Follow the record.</span></h1><p class="hero-lede">A fictional world of insurers, providers, investors, public bodies, suppliers and competing interests. Learn the craft, build your own investigation, or browse the evidence and make your own connections.</p><div class="hero-actions"><a class="button button-primary" href="workspace/index.html">Open the Academy ↗</a><a class="button button-quiet" href="search/index.html">Browse VINDR</a></div><div class="hero-footnote"><span class="footnote-line"></span> ALL ORGANISATIONS, PEOPLE, EVENTS AND RECORDS ARE FICTIONAL TRAINING MATERIAL.</div></div><aside class="hero-console"><div class="console-top"><span>FIELD CONSOLE / OPEN ACCESS</span><span class="console-live"><i></i> LOCAL</span></div><div class="console-graphic"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="console-core"><span>CL</span><small>INVESTIGATE</small></div><span class="orbit-label label-a">CLAIMS</span><span class="orbit-label label-b">SOURCES</span><span class="orbit-label label-c">MOTIVES</span></div><div class="console-stats"><div><strong>06</strong><span>CORE WORLDS</span></div><div><strong>∞</strong><span>OPEN QUESTIONS</span></div><div><strong>100%</strong><span>FICTIONAL</span></div></div><div class="console-bottom"><span>ACCESS</span><b>CHOOSE YOUR OWN ENTRY</b></div></aside></section>
+<section class="section-shell" id="start"><div class="section-heading"><div><p class="eyebrow">START WHERE YOU LIKE</p><h2>Choose your <em>game.</em></h2></div><p class="section-intro">Start with a walkthrough, practise with the tutorial, use the Academy as your central workbench, or test yourself in the exam. You can also browse the fictional web at any time.</p></div><div class="choice-grid"><a class="choice walkthrough" href="worked-example.html"><span class="ey">SEE A COMPLETE INVESTIGATION</span><span class="choice-art" aria-hidden="true">◫</span><h3>Walkthrough</h3><p>Follow a finished example from first question to carefully bounded conclusion. See how the method works in practice.</p><span class="go">OPEN THE WALKTHROUGH ↗</span></a><a class="choice" href="tutorial.html"><span class="ey">GUIDED PRACTICE</span><span class="choice-art" aria-hidden="true">↳</span><h3>Tutorial</h3><p>Work through a guided investigation. Learn how to turn a polished company claim into questions you can actually test.</p><span class="go">START THE TUTORIAL ↗</span></a><a class="choice academy" href="workspace/index.html"><span class="ey">CENTRAL WORKBENCH</span><span class="choice-art" aria-hidden="true">✳</span><h3>Academy</h3><p>Build skills, take notes, map entities, assess evidence, compare motives and develop a defensible account.</p><span class="go">ENTER THE ACADEMY ↗</span></a><a class="choice exam" href="exam.html"><span class="ey">INDEPENDENT CHALLENGE</span><span class="choice-art" aria-hidden="true">⌕</span><h3>Exam</h3><p>Investigate without guided answers. Work with a larger source set, conflicting records and competing explanations.</p><span class="go">TAKE THE EXAM ↗</span></a></div></section>
+<div class="gg-ad-wrap"><a class="gg-ad" href="goedgeregeld/index.html"><span class="gg-ad-label">SPONSORED</span><span class="gg-ad-logo">gg<span>+</span></span><span class="gg-ad-copy"><b>GOEDGEREGELD · WORKFLOW SERVICES</b><strong>One platform. Every department. A clearer view of work in motion.</strong><small>Bring your documents, teams and workflows into one shared environment.</small></span><span class="gg-ad-cta">DISCOVER THE PLATFORM ↗</span></a></div>
+<section class="section-shell"><div class="section-heading"><div><p class="eyebrow">THE FICTIONAL WEB</p><h2>Browse the <em>world.</em></h2></div><p class="section-intro">Six core company worlds sit inside a wider ecosystem of finance, energy, infrastructure, public administration and professional services.</p></div><div class="world-grid">
+        <article class="world-card world-noordlicht">
+          <div class="world-art aero-art" aria-hidden="true"><span class="aero-window"><i></i><i></i><i></i><b>N_L / DESKTOP</b></span><span class="aero-orb">N</span><span class="aero-caption">ARCHIVE_2007.EXE</span></div>
+          <div class="world-content">
+            <div class="world-topline"><span class="world-label">01 / AERO ARCHIVE</span><span class="world-chip">PINK · LILAC · CHAOS</span></div>
+            <h3>Noordlicht</h3><p class="world-subtitle">The company that looks like a desktop from another internet.</p>
+            <p>Start with the public-facing identity, then dig into the cooperative structure, regional origins and supplier paperwork. The trail rewards slow, careful document comparison.</p>
+            <div class="world-method"><b>INVESTIGATIVE INSTINCT</b><span>Corporate archaeology · governance · procurement</span></div>
+            <div class="world-links"><a href="research-lab/noordlicht/website/index.html">Company website ↗</a><a href="research-lab/noordlicht/wiki/index.html">Wiki ↗</a><a href="research-lab/noordlicht/research/overview.html">Research desk ↗</a><a href="workspace/index.html#archived-casebook">Case trail ↗</a></div>
+          </div>
+        </article>
+        <article class="world-card world-rivierzorg">
+          <div class="world-art flow-art" aria-hidden="true"><div class="flow-orb orb-one"></div><div class="flow-orb orb-two"></div><div class="flow-panel"><span>FLOW / SYSTEM STATUS</span><b>● ● ●</b><i></i><i></i><i></i></div><span class="flow-caption">LIVE SYSTEMS / TRACE</span></div>
+          <div class="world-content">
+            <div class="world-topline"><span class="world-label">02 / FLOW INTERFACE</span><span class="world-chip">TURQUOISE · GLASS · CALM</span></div>
+            <h3>Rivierzorg</h3><p class="world-subtitle">A smooth interface with a systems story underneath.</p>
+            <p>Follow service metrics back to their definitions, inspect technical records and examine the gap between a directory status and care that can actually be accessed.</p>
+            <div class="world-method"><b>INVESTIGATIVE INSTINCT</b><span>Operational records · metrics · systems</span></div>
+            <div class="world-links"><a href="research-lab/rivierzorg/website/index.html">Company website ↗</a><a href="research-lab/rivierzorg/wiki/index.html">Wiki ↗</a><a href="research-lab/rivierzorg/research/overview.html">Research desk ↗</a><a href="workspace/index.html#archived-casebook">Case trail ↗</a></div>
+          </div>
+        </article>
+        <article class="world-card world-kompas">
+          <div class="world-art metro-art" aria-hidden="true"><span class="metro-tile tile-large">K</span><span class="metro-tile tile-small">FAMILY</span><span class="metro-tile tile-wide">MEMBER ARCHIVE</span><span class="metro-tile tile-tall">CARE<br>MAP</span><span class="metro-tile tile-dot">+</span></div>
+          <div class="world-content">
+            <div class="world-topline"><span class="world-label">03 / METRO ARCHIVE</span><span class="world-chip">TERRACOTTA · FAMILY · TILES</span></div>
+            <h3>Kompas</h3><p class="world-subtitle">A warm family-first story with important fine print.</p>
+            <p>Follow household eligibility, cooperative voting and regional care access. Look for the difference between a reassuring family promise and the conditions that determine who qualifies.</p>
+            <div class="world-method"><b>INVESTIGATIVE INSTINCT</b><span>Eligibility · member rights · regional access</span></div>
+            <div class="world-links"><a href="research-lab/kompas/website/index.html">Company website ↗</a><a href="research-lab/kompas/wiki/index.html">Wiki ↗</a><a href="research-lab/kompas/research/overview.html">Research desk ↗</a><a href="workspace/index.html#archived-casebook">Case trail ↗</a></div>
+          </div>
+        </article>
+        <article class="world-card" style="--world:#ffc83d;border-color:#ffc83d"><div class="world-art" style="background:linear-gradient(125deg,#ffc83d,#ff806d 55%,#9a83f4);display:grid;place-items:center;color:#292344;font-size:82px;font-weight:950">☼</div><div class="world-content"><div class="world-topline"><span class="world-label">04 / SUNSHINE MODERNISM</span><span class="world-chip">YELLOW · CORAL · MINT · VIOLET</span></div><h3>Solstice Cover</h3><p class="world-subtitle">A bright promise with a complicated evidence trail.</p><p>Follow the 96% network-access claim through corporate structure, methodology, service agreements and independent field reporting.</p><div class="world-method"><b>INVESTIGATIVE INSTINCT</b><span>Claim construction · source evaluation · practical access</span></div><div class="world-links"><a href="research-lab/solstice/website/index.html">Company website ↗</a><a href="research-lab/solstice/wiki/index.html">Wiki ↗</a><a href="research-lab/solstice/research/desk.html">Research desk ↗</a><a href="tutorial.html">Guided tutorial ↗</a></div></div></article>
+        <article class="world-card" style="--world:#3d68ff;border-color:#ff42b8"><div class="world-art" style="background:linear-gradient(135deg,#171735,#3d68ff 52%,#ff42b8);display:grid;place-items:center;min-height:190px;color:#d5ff4f;font:700 28px monospace;letter-spacing:.1em">FREQUENCY ///<small style="display:block;color:white;font-size:10px;letter-spacing:.2em">MEDIA GUIDE 2002</small></div><div class="world-content"><div class="world-topline"><span class="world-label">05 / DIGITAL MEDIA GUIDE</span><span class="world-chip">BLUE · MAGENTA · LIME</span></div><h3>Frequency</h3><p class="world-subtitle">One brand. Several entities. A promise worth testing.</p><p>A 2002 cable-TV and console-dashboard inspired world. Follow the 88% resolution claim through the source library and completed investigation.</p><div class="world-method"><b>INVESTIGATIVE INSTINCT</b><span>Metric definitions · service operations · member outcomes</span></div><div class="world-links"><a href="research-lab/frequency/website/index.html">Company website ↗</a><a href="research-lab/frequency/wiki/index.html">Wiki ↗</a><a href="research-lab/frequency/research/desk.html">Research desk ↗</a><a href="worked-example.html">Worked investigation ↗</a></div></div></article>
+        <article class="world-card" style="--world:#76518b;border-color:#b9d5ad"><div class="world-art" style="background:radial-gradient(circle at 78% 22%,#b9d5ad 0 5%,transparent 5.5%),linear-gradient(135deg,#17111f 0%,#76518b 58%,#a98bc2 100%);display:grid;place-items:center;min-height:190px;color:#dcebd5;font:1000 54px Arial;letter-spacing:-.08em">PA / 014<small style="display:block;color:#f4eff3;font-size:10px;letter-spacing:.22em">CIVIC ROUTE TERMINAL / 1978</small></div><div class="world-content"><div class="world-topline"><span class="world-label">06 / AIRPORT WAYFINDING</span><span class="world-chip">PASTEL SAGE · GOTH PURPLE · LILAC</span></div><h3>Palisade</h3><p class="world-subtitle">A civic promise displayed like a departure board.</p><p>Investigate regional healthcare access, delegated operations, directory metrics and the difference between a listed route and practical access.</p><div class="world-method"><b>INVESTIGATIVE INSTINCT</b><span>Independent research · entity mapping · metric scrutiny</span></div><div class="world-links"><a href="research-lab/palisade/website/index.html">Company website ↗</a><a href="research-lab/palisade/wiki/index.html">Wiki ↗</a><a href="research-lab/palisade/research/desk.html">Research desk ↗</a><a href="exam.html">Independent exam ↗</a></div></div></article>
+      <article class="world vindr-world"><div class="world-art-mini" style="--art-a:#b9f1e8;--art-b:#83c6e7"><img src="assets/world-panels/vindr.svg" alt="" loading="lazy"><span>VINDR / LOCAL WEB SEARCH</span></div><h3>VINDR</h3><p>The local search engine for websites, wikis, registers, source documents and archives across the simulation.</p><div class="world-links"><a href="search/index.html">Search the local web ↗</a><a href="research-lab/institutions/index.html">Browse sources ↗</a></div></article></div></div></section></main><footer class="site-footer shell"><span>COVERAGE LABS · FICTIONAL INVESTIGATIVE PLAYGROUND</span><span>Local progress is stored in this browser. Export your notes regularly.</span></footer><script>if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register(coveragePath("sw.js")));</script></body></html>

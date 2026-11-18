@@ -1,0 +1,7 @@
+claim_id,claim,claim_class,relevant_sources,investigative_question
+PAL-C01,Palisade says care is within reach in every region.,Public statement,PAL-SRC-010,Test what “within reach” means and whether the underlying records establish it.
+PAL-C02,94% of regional care categories have a route listed.,Metric,PAL-SRC-005; PAL-SRC-006; PAL-SRC-010,Recalculate the denominator and examine exclusions and freshness.
+PAL-C03,The route directory provides a current picture of available care.,Operational implication,PAL-SRC-004; PAL-SRC-006; PAL-SRC-007; PAL-SRC-009,Distinguish a listed route from current capacity and determine the update clock.
+PAL-C04,Palisade operates an integrated service with clear responsibility.,Corporate presentation,PAL-SRC-001; PAL-SRC-002; PAL-SRC-003; PAL-SRC-004,"Map legal entities, delegated operations and decision authority."
+PAL-C05,Members who cannot use a listed route are offered an alternative.,Service implication,PAL-SRC-003; PAL-SRC-008; PAL-SRC-011,Establish what the policy promises and what the case extract demonstrates.
+PAL-C06,The public 94% figure is evidence of member access.,Implied claim,PAL-SRC-005; PAL-SRC-006; PAL-SRC-008; PAL-SRC-009,"Assess whether the metric measures access, capacity, response or directory presence."

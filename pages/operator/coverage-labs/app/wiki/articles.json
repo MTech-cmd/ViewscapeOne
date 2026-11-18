@@ -1,0 +1,155 @@
+[
+  {
+    "id": "wetering-civic-capital",
+    "title": "Wetering Civic Capital B.V.",
+    "category": "Corporate entities",
+    "updated": "2026-11-18",
+    "lead": "A fictional holding and financing group appearing in several institutional records.",
+    "body": [
+      "Wetering Civic Capital B.V. is a fictional Dutch corporate group referenced in the Noorder Cooperative Bank facility records and in the KRO register material. The available records describe it as the borrower under a revolving receivables facility and as the shareholder of Kade Data & Dossier B.V. in a filed control update.",
+      "The bank records describe financing exposure and borrower reporting. They do not identify every customer whose service-fee receivables form part of the borrowing base. A concentration notice reports 27.4% for one customer in Q4 2025, but the customer is not named in the public extract.",
+      "The available material does not establish that Wetering owns any insurer, controls clinical decisions or is itself an insurance provider. Similarity between supplier names and insurer brands is not enough to establish a legal relationship.",
+      "Corporate records are a snapshot. Check the filing date, legal entity identifier and whether the source describes a shareholder, director, borrower, contractor or customer. These roles are not interchangeable."
+    ],
+    "sources": [
+      "KRO-2026-041",
+      "NCB-2025-77",
+      "NCB-2026-12",
+      "NCB-2026-31",
+      "ZORGLIJN-2026-58"
+    ],
+    "status": "Partly documented"
+  },
+  {
+    "id": "kade-data-dossier",
+    "title": "Kade Data & Dossier B.V.",
+    "category": "Corporate entities",
+    "updated": "2026-11-18",
+    "lead": "A fictional administrative-services company with historic trade names and a documented shareholder update.",
+    "body": [
+      "Kade Data & Dossier B.V. is a fictional company incorporated in 2019 and recorded in the Kamerregister voor Ondernemingen. Its registered activities include document handling, administrative case processing and managed correspondence.",
+      "The register extract records Wetering Civic Capital B.V. as sole shareholder in a 2024 control update. Historic trade names include Kade Relay and DossierDock. A later filing records an officer appointment effective 1 October 2026.",
+      "De Zorglijn has reported overlapping supplier references across fictional insurers and administrative-service providers. The reporting itself cautions that supplier-code matching is suggestive and does not prove identical data flows or shared decision-making.",
+      "The available sources do not establish the full set of Kade customers, the exact data handled for each customer, or whether it makes decisions on behalf of an insurer. Those questions require contracts, process maps and company-specific operational evidence."
+    ],
+    "sources": [
+      "KRO-2026-041",
+      "KRO-2026-052",
+      "ZORGLIJN-2026-34",
+      "NZT-2026-08"
+    ],
+    "status": "Partly documented"
+  },
+  {
+    "id": "noorder-cooperative-bank",
+    "title": "Noorder Cooperative Bank",
+    "category": "Financial institutions",
+    "updated": "2026-11-18",
+    "lead": "A fictional cooperative lender whose published extracts describe a receivables facility for Wetering Civic Capital group.",
+    "body": [
+      "Noorder Cooperative Bank is a fictional cooperative bank in the Coverage Labs source environment. It publishes a limited public summary of a revolving receivables facility granted to Wetering Civic Capital B.V. and two operating subsidiaries.",
+      "The original summary says recurring service-fee receivables form part of the borrowing base and includes a covenant requiring notification when any single service customer exceeds 25% of invoiced revenue. A later notice records that the borrower reported 27.4% for Q4 2025.",
+      "The Bank requested a reconciliation. A subsequent monitoring excerpt states that the facility remained within its borrowing-base limit. These are credit-monitoring facts as represented in the fictional documents; they are not findings about healthcare quality or member outcomes.",
+      "The bank records do not name the concentrated customer. They also do not provide the complete loan agreement, invoice ledger or full credit file. The identity of the customer must therefore remain unknown on the available evidence."
+    ],
+    "sources": [
+      "NCB-2025-77",
+      "NCB-2026-12",
+      "NCB-2026-31",
+      "ZORGLIJN-2026-58"
+    ],
+    "status": "Supported within narrow scope"
+  },
+  {
+    "id": "filing-receipt-vs-review",
+    "title": "Filing acknowledgement, assessment and payment receipt",
+    "category": "Evidence concepts",
+    "updated": "2026-11-18",
+    "lead": "Three administrative records that are easy to overstate if their precise function is ignored.",
+    "body": [
+      "A filing acknowledgement records that a filing was received. It does not by itself certify that the contents are true, complete or independently reviewed.",
+      "An assessment notice records an administrative position for a stated period. If marked provisional, it may be revised. A payment receipt records receipt or allocation of a payment to a reference; it does not establish every aspect of compliance.",
+      "The fictional DBR materials illustrate these distinctions. The annual filing acknowledgement for Kade Data & Dossier B.V. confirms receipt only. A later provisional assessment and payment receipt for Wetering Civic Capital records a payment allocation but shows no substantive review.",
+      "When citing an administrative record, quote its exact status and scope. Avoid replacing “received” with “approved”, or “payment allocated” with “fully compliant”."
+    ],
+    "sources": [
+      "DBR-2026-119",
+      "DBR-2026-204",
+      "ZORGLIJN-2026-63"
+    ],
+    "status": "Supported as a source-reading rule"
+  },
+  {
+    "id": "outsourced-member-administration",
+    "title": "Outsourced member administration",
+    "category": "Service arrangements",
+    "updated": "2026-11-18",
+    "lead": "A broad label for several distinct activities that may be performed by different entities.",
+    "body": [
+      "Outsourced member administration can include correspondence intake, document indexing, case-file preparation, call routing and other support functions. The label alone does not reveal which legal entity performs each task or who makes decisions.",
+      "The fictional NZT thematic note describes concentration risk when multiple organisations rely on a shared service provider. It recommends service maps, tested exit plans and member-level incident reporting. It is a sector-level note, not a finding against a named insurer.",
+      "The NZT follow-up questionnaire distinguishes a documented exit plan from evidence that the plan was tested. Nine of twelve fictional organisations returned a completed follow-up; the aggregate figures are self-reported and the sample is not representative.",
+      "To investigate a specific arrangement, seek the contract, service schedule, operational process map, escalation matrix and evidence of actual performance. Do not infer decision-making responsibility from a supplier name alone."
+    ],
+    "sources": [
+      "NZT-2026-08",
+      "NZT-2026-19",
+      "NZT-2026-27",
+      "ZORGLIJN-2026-34"
+    ],
+    "status": "Partly documented"
+  },
+  {
+    "id": "regional-provider-directory",
+    "title": "Regional provider directories and access metrics",
+    "category": "Healthcare access",
+    "updated": "2026-11-18",
+    "lead": "A directory entry, a contracted site and a successful appointment route are different things.",
+    "body": [
+      "A provider directory can list an organisation, a physical site, a specialty label or a booking route. These units should not be collapsed into a single network percentage.",
+      "The fictional Waypoint Audit Office sampling protocol checks listed addresses, specialty labels and appointment routes across a purposive sample. It does not test clinical quality or guarantee that every member can obtain an appointment.",
+      "De Zorglijn has separately described how three fictional insurer pages use different denominators: hospital organisations, hospital addresses and organisations with any active agreement. Percentages based on different definitions are not directly comparable.",
+      "A robust access assessment should record treatment type, specialty, site, contract status, capacity, date verified and the actual route to an appointment. A directory entry alone cannot establish practical access."
+    ],
+    "sources": [
+      "WAO-2026-17",
+      "ZORGLIJN-2026-41",
+      "PAL-SRC-005",
+      "PAL-SRC-006"
+    ],
+    "status": "Supported as methodology"
+  },
+  {
+    "id": "administratieve-terugkeerwind",
+    "title": "Administratieve terugkeerwind",
+    "category": "Unresolved terminology",
+    "updated": "2026-11-18",
+    "lead": "A phrase that appears in one fictional correspondence note and has no stable definition.",
+    "body": [
+      "“Administratieve terugkeerwind” appears in an undated draft note described in Civic Lens field material. The note is quoted as: “when the folder comes back but nobody remembers who sent it”. No author, approved definition or process owner is identified.",
+      "The phrase may be an internal joke, local shorthand, a transcription error or an informal description of a recurring administrative loop. The available source does not decide between these possibilities.",
+      "This entry is intentionally awkward because the underlying phrase is awkward. It is not a recognised legal, financial or operational term in this fictional source environment. It should not be used as a formal process label or KPI.",
+      "If the original correspondence bundle becomes available, update this entry with the original wording, date, author context and a more precise source citation. Until then, the meaning remains unknown."
+    ],
+    "sources": [
+      "CIVIC-2026-29"
+    ],
+    "status": "Unresolved / source-limited"
+  },
+  {
+    "id": "dossierwarmte",
+    "title": "Dossierwarmte",
+    "category": "Unresolved terminology",
+    "updated": "2026-11-18",
+    "lead": "A strange internal phrase recorded in a meeting note, explicitly marked “not for KPI use”.",
+    "body": [
+      "The word “dossierwarmte” appears in the same Civic Lens glossary note. It is described as a phrase used in a meeting to refer to the perceived urgency of a case after three hand-offs.",
+      "The note provides no scale, threshold, unit, owner or measurement method. A reviewer reportedly marked it “not for KPI use”. The source is a secondary field note and does not reproduce the original meeting record.",
+      "It may sound like a metric, but the available evidence does not establish a metric. A researcher should preserve the phrase as a quotation and avoid inventing a definition."
+    ],
+    "sources": [
+      "CIVIC-2026-29"
+    ],
+    "status": "Unresolved / source-limited"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "name": "Coverage Labs \u2014 Investigative Journalism Playground",
+  "short_name": "Coverage Labs",
+  "start_url": "./workspace/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10111a",
+  "theme_color": "#11121b",
+  "description": "Public offline-ready fictional investigative journalism training playground"
+}

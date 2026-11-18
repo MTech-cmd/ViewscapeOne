@@ -86,3 +86,59 @@ h1.vs-title[data-text] { position: relative; }
 @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), .55), 0 0 24px rgba(var(--accent-rgb), .5); } 50% { box-shadow: 0 0 0 14px rgba(var(--accent-rgb), 0), 0 0 40px rgba(var(--accent-rgb), .8); } }
 @keyframes shimmer { to { transform: translateX(160%); } }
 @keyframes beam { 0%, 100% { opacity: .55; } 50% { opacity: .9; } }
+
+/* ================= v1.1 · statusbar ================= */
+:root { --sb-h: 34px; }
+html { -webkit-tap-highlight-color: transparent; }
+html.has-status body { padding-top: calc(var(--sb-h) + env(safe-area-inset-top, 0px)); }
+.vs-status {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1100; display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+  height: calc(var(--sb-h) + env(safe-area-inset-top, 0px)); padding: env(safe-area-inset-top, 0px) max(.8rem, env(safe-area-inset-right, 0px)) 0 max(.8rem, env(safe-area-inset-left, 0px));
+  background: linear-gradient(180deg, rgba(14, 6, 26, .78), rgba(14, 6, 26, .5)); -webkit-backdrop-filter: blur(18px) saturate(1.7); backdrop-filter: blur(18px) saturate(1.7);
+  border-bottom: 1px solid rgba(var(--accent-rgb), .35); box-shadow: 0 6px 24px rgba(0, 0, 0, .4), inset 0 -1px 0 rgba(255, 255, 255, .06);
+  font: 500 .7rem/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--vs-dim); user-select: none; -webkit-user-select: none;
+}
+.vs-status::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), var(--vs-tur), transparent); background-size: 200% 100%; animation: chrome 6s linear infinite; opacity: .7; }
+.vs-status.lite::after { animation: none; }
+.sb-l { display: flex; align-items: center; gap: .55rem; color: #fff; flex: none; } .sb-l:hover { text-shadow: none; }
+.sb-mark { width: 20px; height: 20px; display: grid; filter: drop-shadow(0 0 6px var(--accent)); } .sb-mark svg { width: 100%; height: 100%; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; } .sb-mark circle { fill: var(--vs-tur); stroke: none; }
+.sb-brand { font: 800 .72rem var(--f-disp); letter-spacing: .26em; } .sb-brand i { font-style: normal; color: var(--accent); margin-left: .5em; text-shadow: 0 0 10px var(--accent); }
+.sb-c { flex: 1; min-width: 0; display: flex; justify-content: center; align-items: center; gap: .7rem; }
+.sb-title { color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 46vw; }
+.sb-state { color: var(--vs-tur); text-shadow: 0 0 8px var(--vs-tur); display: none; } .sb-state.on { display: inline; } .sb-state::before { content: "● "; animation: blink 1.6s steps(1) infinite; }
+.sb-r { display: flex; align-items: center; gap: .55rem; flex: none; }
+.sb-chip { display: inline-flex; align-items: center; gap: .3rem; padding: .32em .6em; border-radius: 99px; border: 1px solid var(--glass-brd); background: rgba(255, 255, 255, .05); font-size: .62rem; letter-spacing: .1em; white-space: nowrap; }
+.sb-chip svg { opacity: .8; } .sb-chip.net.on { color: var(--vs-mint); border-color: rgba(168, 255, 208, .35); } .sb-chip.net.off, .sb-chip.low { color: var(--vs-red); border-color: rgba(255, 42, 85, .5); }
+.sb-chip.net::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; margin-right: .1rem; }
+.sb-clock { color: #fff; letter-spacing: .12em; font-size: .72rem; min-width: 3.2em; text-align: center; }
+.sb-btn { width: 30px; height: 30px; display: grid; place-items: center; padding: 0; border-radius: 50%; border: 1px solid var(--glass-brd); background: rgba(255, 255, 255, .06); color: var(--vs-ink); transition: .3s var(--spring); }
+.sb-btn:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.1); } .sb-btn.on { background: rgba(var(--accent-rgb), .3); border-color: var(--accent); }
+@media (max-width: 640px) { .sb-brand, .sb-chip.net { display: none; } .sb-title { max-width: 38vw; } .vs-status { gap: .5rem; } }
+@media (pointer: coarse) { .sb-btn { width: 36px; height: 36px; } :root { --sb-h: 38px; } }
+.vs-embedded .vs-status { display: none; }
+
+/* ================= v1.1 · lite mode (auto on weak/saver/low-battery devices, or via Display ▸ Performance) ================= */
+html.vs-lite .vs-floor, html.vs-lite .vs-sweep, html.vs-lite .vs-scan, html.vs-lite .vs-glare, html.vs-lite .vs-ticker { display: none; }
+html.vs-lite .vs-orb { animation: none; filter: blur(60px); opacity: .32; }
+html.vs-lite .vs-title, html.vs-lite .vs-hero-title { animation: none; filter: none; }
+html.vs-lite .vs-tile, html.vs-lite .vs-pagehero::after, html.vs-lite .vs-beam { animation-name: none; }
+html.vs-lite .vs-tile { animation: tileIn .5s var(--ease) backwards; animation-delay: calc(var(--i) * 40ms); }
+html.vs-lite *:not(.vs-status):not(.vs-wheel-disc), html.vs-lite *::before, html.vs-lite *::after { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+html.vs-lite .vs-glass, html.vs-lite .vs-card, html.vs-lite .vs-stat, html.vs-lite .vs-chart, html.vs-lite .vs-tile, html.vs-lite .vs-tabs, html.vs-lite .vs-callout, html.vs-lite .vs-kv, html.vs-lite .vs-tablewrap .scroll, html.vs-lite .vs-btn, html.vs-lite .vs-chip { background-color: rgba(20, 10, 36, .82); }
+html.vs-lite .vs-glass { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 6px 18px rgba(0, 0, 0, .4); }
+html.vs-lite [data-reveal] { filter: none; transition-duration: .45s; }
+
+/* ================= v1.1 · idle / hidden / covered → pause infinite animations ================= */
+html.vs-idle .vs-ambient *, html.vs-idle .vs-tile, html.vs-idle .vs-ticker-track, html.vs-idle .vs-status::after, html.vs-hidden *, html.vs-viewing .vs-ambient *, html.vs-viewing .vs-tile, html.vs-viewing .vs-ticker-track { animation-play-state: paused !important; }
+.vs-section { content-visibility: auto; contain-intrinsic-size: auto 640px; }
+
+/* ================= v1.1 · touch ================= */
+a, button, .vs-chip, .vs-tile, .vs-card, .vs-btn, summary, [role="button"] { touch-action: manipulation; }
+body { overscroll-behavior-y: contain; }
+@media (pointer: coarse) {
+  .vs-btn { min-height: 44px; } .vs-chip { min-height: 40px; padding-inline: 1.1em; } .vs-icon-btn { width: 44px; height: 44px; }
+  .vs-table th, .vs-accordion summary { min-height: 44px; } .vs-card-link { min-height: 56px; } .vs-gi { min-height: 96px; }
+  .vs-tile:active { transform: scale(.975); } .vs-card:active { transform: scale(.985); }
+  .vs-copy { width: 42px; height: 42px; }
+}
+@media (max-width: 640px) { .vs-wrap { padding-right: max(.5rem, env(safe-area-inset-right)); padding-left: max(.5rem, env(safe-area-inset-left)); width: 100%; } }

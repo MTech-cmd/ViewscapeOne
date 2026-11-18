@@ -1,0 +1,72 @@
+[
+  [
+    "01",
+    "Resolve the entity before the story",
+    "A brand is not a legal person, and a group chart is not proof of control.",
+    "Map parent companies, insurers, policy brands, administrators, providers, investors, lenders, suppliers and subcontractors. Label every relationship by type and date: ownership, contract, financing, shared service, governance, brand or unresolved.",
+    "Choose one insurer. Build a map with at least five distinct entity types. Add a source and date to every arrow; mark unsupported links as hypotheses."
+  ],
+  [
+    "02",
+    "Turn the public claim into testable claims",
+    "Marketing language often compresses several different promises into one sentence.",
+    "Capture exact wording, speaker, date, audience, scope and measurable proposition. Split claims about access, quality, speed, choice, outcomes and accountability.",
+    "Rewrite “care within reach for everyone” into four separate claims and specify what evidence could test each."
+  ],
+  [
+    "03",
+    "Build a source register and provenance trail",
+    "A source is a record with an origin, purpose, date, scope and limitation.",
+    "Record source ID, publisher, author, date, version, source type, URL/path, page, original/copy status and known dependencies. Distinguish primary records, summaries, promotional material and anonymous tips.",
+    "Find a registry filing, annual report, contract extract and customer-facing page. Explain the different questions each can answer."
+  ],
+  [
+    "04",
+    "Assess evidence and confidence separately",
+    "A narrow fact can be well established while the wider theory remains unknown.",
+    "Use Supported / Partly supported / Disputed / Unknown / Outdated for evidence status; High / Medium / Low / Unknown for confidence. Explain scope and why confidence is not a score for how plausible a story feels.",
+    "Assess one claim twice: status and confidence. Then write what additional source would change either assessment."
+  ],
+  [
+    "05",
+    "Trace money, incentives and motives",
+    "Follow incentives without assuming that an incentive proves conduct.",
+    "Map shareholdings, debt, dividends, asset sales, procurement, related-party contracts, land, energy exposure, family ownership and executive compensation. Separate documented financial interests from inferred motives.",
+    "For one company, identify a plausible commercial incentive, the source that establishes it, and at least two alternative explanations for the same decision."
+  ],
+  [
+    "06",
+    "Follow the supplier and platform layer",
+    "Shared software can create dependencies without creating a single controlling organisation.",
+    "Trace platform contracts, service schedules, data-processing roles, subcontractors, procurement decisions, migration tickets, service-level metrics and exit clauses. A logo or login screen does not prove data access or control.",
+    "Investigate the ubiquitous workflow vendor. Find what it can establish, what it merely points toward, and which contract annexes remain missing."
+  ],
+  [
+    "07",
+    "Triangulate, do not stack citations",
+    "Several documents repeating one press release are still one information lineage.",
+    "Trace source lineage, identify copied figures, compare independent records, test chronology and preserve contradictions. Record who benefits from publication and what the source could not know.",
+    "Find two apparently corroborating sources. Determine whether they are independent, derived from a common dataset or simply repeating the same statement."
+  ],
+  [
+    "08",
+    "Test practical access and lived outcomes",
+    "A directory entry, contract or visible slot is not an appointment or a successful outcome.",
+    "For care access, seek named provider, site, treatment, service code, referral, contract period, capacity, wait-time and member-level outcome evidence. Distinguish entitlement, contractual coverage and practical availability.",
+    "Choose one care pathway. List the evidence needed to follow a person from referral through treatment and payment. Mark each missing link."
+  ],
+  [
+    "09",
+    "Interrogate metrics and compare like with like",
+    "A percentage without a unit, denominator, period and exclusions is a headline, not a finding.",
+    "Distinguish people, interactions, tickets, locations, organisations, addresses, slots, claims and episodes. Check deduplication, missing data, eligibility, time windows, category changes and revisions.",
+    "Compare two company metrics and one vendor dashboard. Explain why their percentages cannot safely be ranked."
+  ],
+  [
+    "10",
+    "Build competing explanations and a bounded conclusion",
+    "The strongest investigation is not the one with the biggest reveal. It is the one that survives alternatives.",
+    "Maintain a hypothesis ledger: explanation, supporting evidence, contradictory evidence, missing evidence, confidence and falsifier. Consider ordinary administration, commercial incentives, fragmented systems, error, misconduct and mixed explanations. State what would change your mind.",
+    "Write a finding, a competing explanation, an unresolved question and a precise document request. Do not force a single hidden-controller theory from circumstantial links."
+  ]
+]

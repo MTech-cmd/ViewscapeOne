@@ -1,8 +1,8 @@
 /* Viewscape One — wheel.css : GTA-style radial wheel, liquid-glass finish (right edge of every page) */
 .vs-wheel {
   --S: 360px; --M: 12px;
-  position: fixed; right: var(--M); top: 50%; width: var(--S); height: var(--S); margin-top: calc(var(--S) / -2); z-index: 800; pointer-events: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent;
-  transform: translateX(calc(var(--S) / 2 + var(--M) - 41px)); transition: transform .65s var(--spring), opacity .35s;
+  position: fixed; right: calc(var(--M) + var(--sar, 0px)); top: var(--cy, 50%); width: var(--S); height: var(--S); margin-top: calc(var(--S) / -2); z-index: 800; pointer-events: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent;
+  transform: translateX(calc(var(--S) / 2 + var(--M) - 41px)); transition: transform .65s var(--spring), opacity .35s; will-change: transform; contain: layout style;
 }
 .vs-wheel[data-state="open"] { transform: none; }
 .vs-wheel.is-hidden { opacity: 0; visibility: hidden; } .vs-wheel.is-hidden * { pointer-events: none !important; }
@@ -71,3 +71,16 @@
 @keyframes segIn { from { opacity: 0; transform: scale(.55) rotate(-22deg); } to { opacity: 1; transform: none; } }
 @keyframes swapSpin { from { transform: rotate(-14deg) scale(.92); } to { transform: none; } }
 @media (max-width: 520px) { .vs-wheel-hint { display: none; } }
+
+/* orb: dims when idle, bigger touch target, edge-swipe strip */
+.vs-wheel-hub { transition: width .55s var(--spring), height .55s var(--spring), opacity .45s, transform .3s var(--spring), scale .45s var(--spring); }
+.vs-wheel.dim:not([data-state="open"]) .vs-wheel-hub { opacity: .38; scale: .84; animation: none; }
+.vs-wheel.dim .vs-wheel-hub .ring { opacity: .4; }
+.vs-wheel-edge { position: absolute; left: calc(50% + 19px); width: 24px; top: 50%; height: 320px; margin-top: -160px; pointer-events: auto; touch-action: none; }
+.vs-wheel[data-state="open"] .vs-wheel-edge { pointer-events: none; }
+.vs-wheel-hub::after { content: ""; position: absolute; inset: -12px; border-radius: 50%; } /* larger invisible hit area */
+@media (hover: hover) { .seg:hover .wd { fill: rgba(var(--accent-rgb), .3); } }
+@media (pointer: coarse) { .vs-wheel-core .lb { font-size: clamp(.72rem, 3vw, 1rem); } .vs-wheel-hub { width: 62px; height: 62px; } }
+html.vs-lite .vs-wheel-svg .g1, html.vs-lite .vs-wheel-svg .g2, html.vs-lite .vs-wheel-hub .g, html.vs-lite .vs-wheel-hub .ring { animation: none; }
+html.vs-lite .vs-wheel-disc { -webkit-backdrop-filter: none; backdrop-filter: none; background: radial-gradient(closest-side, rgba(var(--accent-rgb), .12), rgba(12, 6, 22, .9) 78%, rgba(var(--accent-rgb), .15)); }
+html.vs-lite .vs-wheel-hub, html.vs-lite .vs-wheel-core { -webkit-backdrop-filter: none; backdrop-filter: none; }

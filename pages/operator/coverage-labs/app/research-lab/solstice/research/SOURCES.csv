@@ -1,0 +1,8 @@
+source_id,title,type,date,purpose,limitation
+SOL-SRC-001,Group Overview,Primary corporate publication,2026-10-01,Corporate structure and public claims,Self-published; not proof of implementation
+SOL-SRC-002,Network Access Methodology,Primary technical methodology,2026-10-15,Defines 30-minute measure,Uses listed address coordinates; excludes appointment availability
+SOL-SRC-003,Service Performance Report,Primary operational extract,2026-10-31,Service response metric,Resolved includes automated closure and excludes reopened cases
+SOL-SRC-004,Service Agreement Extract,Primary contractual extract,2026-09-01,Operational responsibility,Partial extract; annexes and delegations absent
+SOL-SRC-005,Independent Field Note,Secondary reporting,2026-11-05,Qualifies geographic-access claim,Small illustrative sample; not representative
+GG-CUST-123,"Solstice deployment: partner directory and referral coordination",Primary,GoedGeregeld Software B.V.,"Customer deployment and referral workflow configuration; vendor record is discoverable through sponsored placement.","Vendor-authored configuration summary; does not establish member outcomes, clinical access or full data control."
+SOL-2026-12,"Network density and brand promise planning note",Internal strategy extract,2026-11-14,"Records stated network and metric incentives; see exhibits/sol-2026-12-exhibit.html.","Management-authored proposal; does not establish implementation or member outcomes."

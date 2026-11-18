@@ -24,7 +24,7 @@ viewscape-one/
 │  ├─ me/   index.json + <slug>/…      your pages
 │  └─ ai/  index.json + <slug>/…      AI's pages
 ├─ templates/  page/ (data) · custom/ (hand-built)
-├─ studio/     in-browser control room
+└─ (pages/sys/studio = in-browser control room)
 └─ tools/vs.mjs   CLI
 ```
 
@@ -48,6 +48,15 @@ A page = `pages/<source>/<slug>/` containing `page.json` (+ `index.html`, + any 
 - **Data page** (default): `page.json` → `sections[] → blocks[]`. 30+ block types: text/paragraphs, video (mp4 or YouTube/Vimeo), image, gallery, audio, embed, links to pages/files, stats, charts (bar/line/area/donut/radar), sortable tables, timeline, tabs, accordion, columns, code, JSON viewer… See `HANDOVER.json` for every prop.
 - **Custom page**: `"type":"custom"` — own `index.html/page.css/page.js`, still gets wheel + ambience, and can call `VS.blocks.render([...], el)`. A completely separate framework also works: put its build in the folder and set `"entry"` in `page.json`.
 - Link between pages with `[[ai/sample-intel|label]]` in text or `"page":"ai/sample-intel"` in link items. Files are linked relative to the page folder.
+
+## v1.1 — statusbar, touch, windows, fullscreen
+
+- **Statusbar** replaces the navbar (title, clock, network, battery, linked windows, install, fullscreen). **All navigation is in the wheel** — Search (also `/`), Sources, Random, Studio, About, GitHub, Window, Display.
+- **Touch:** swipe in from the right edge to open the wheel; the orb dims while you read; *Display ▸ Orb height* moves it into thumb reach; 44px targets; haptics; safe-area aware.
+- **Fullscreen / app mode:** key `F` or the statusbar button. Install it (Chrome/Edge button, or iOS *Share ▸ Add to Home Screen*) and it launches true fullscreen via `manifest.webmanifest`; `sw.js` makes it work offline (network-first, so pushes show immediately).
+- **Multi-window:** *Window ▸ Split view* (two pages side by side), *Pop out*, *Other screen* (multi-monitor, where supported), *Cast* to another Viewscape window; prefs/accent sync across windows.
+- **Resource-friendly:** auto *lite mode* (low-core/low-memory, data saver, battery < 20%), animation pauses when hidden/idle/covered, capped particle fps. Override in *Display ▸ Performance*.
+- **System pages** (`pages/sys/`): *About*, *GitHub* (renders the repo's README, files and commits inside the hologram — GitHub can't be framed — set `"github": "owner/repo"` in `viewscape.config.json`; auto-detected on GitHub Pages) and *Studio*.
 
 ## The wheel
 

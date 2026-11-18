@@ -2,7 +2,7 @@
   "_readme": "HANDOVER for the user's AI. Paste this whole file into the AI, then describe the site/page you want. Follow `site_brief` (folder-based). Everything after it is reference.",
   "framework": {
     "name": "Viewscape One",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "what_it_is": "A static, build-free, GitHub-Pages-ready framework. The home page is a field of tiles; each tile is a folder under pages/<source>/<slug>/ (sources: 'me' and 'ai'). Opening a tile loads that page in a holographic box; branded pages also get a radial 'weapon wheel' on the right edge. A page can be hand/AI-built HTML/CSS/JS (custom) or a JSON-driven data page.",
     "philosophy": "Show data neatly. Prefer few strong sections over many weak ones. Lead with a summary, then stats/charts, then detail tables, then sources. Write real, specific content. Never invent facts presented as real: label fictional or estimated numbers.",
     "stack": "Vanilla HTML/CSS/JS. No build step, no npm packages needed at runtime."
@@ -27,7 +27,15 @@
       "If using the Viewscape scripts the relative depth is exactly ../../../assets/ .",
       "Mobile friendly: leave ~4.5rem of right padding on small screens so the wheel orb doesn't cover content (class vs-wrap does this)."
     ],
-    "reply_format": "Return the files as separate code blocks, each preceded by its full path (e.g. pages/ai/my-site/index.html). Do not wrap in JSON."
+    "reply_format": "Return the files as separate code blocks, each preceded by its full path (e.g. pages/ai/my-site/index.html). Do not wrap in JSON.",
+    "scripts_note": "Branded pages must load, in this order after the CSS: vs.validate.js, vs.core.js, vs.sys.js, vs.fx.js, vs.blocks.js, vs.wheel.js, vs.page.js (all from ../../../assets/js/). templates/custom/index.html already does. vs.sys.js adds the statusbar, fullscreen (key F), performance 'lite' mode, and multi-window support.",
+    "v1_1_notes": [
+      "The top bar is now a STATUSBAR (title, clock, network, battery, window count, fullscreen/install). It is injected automatically; do NOT build your own navbar. All navigation lives in the radial wheel.",
+      "Touch: the wheel opens by swiping in from the right edge; keep tap targets >= 44px; leave normal page padding (the orb auto-dims).",
+      "Be light on resources: avoid heavy continuous animation, use requestAnimationFrame, pause work when document.hidden or html.vs-idle/vs-lite classes are present.",
+      "Pages may be opened with ?lite=1 (split view) — keep them usable when html has class vs-lite.",
+      "System pages live in pages/sys/ (about, repo = GitHub viewer, studio). Set \"github\":\"owner/repo\" in viewscape.config.json for the repo page."
+    ]
   },
   "folder_structure": {
     "viewscape.config.json": "Names the SOURCE folders (who owns pages): e.g. 'me' and 'ai'. AI always uses source 'ai' unless told otherwise.",
@@ -35,7 +43,7 @@
     "pages/<source>/index.json": "The list of page slugs shown on the home field for that source.",
     "pages/<source>/<slug>/": "One page. Contains page.json (+ index.html) and any media/data files it needs.",
     "templates/": "page/ (data page) and custom/ (hand-built page) starters used by the CLI and Studio.",
-    "studio/": "In-browser tool: paste a bundle, preview it, download a zip.",
+    "pages/sys/": "System pages: about, repo (GitHub viewer), studio (paste a bundle, preview it, download a zip).",
     "tools/vs.mjs": "CLI: new / remove / hide / show / import / validate / serve."
   },
   "output_contract": {

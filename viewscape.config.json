@@ -1,13 +1,40 @@
 {
   "name": "Viewscape One",
   "tagline": "holographic data field",
-  "eyebrow": "★ certified holo ★ field index",
+  "eyebrow": "\u2605 certified holo \u2605 field index",
   "headline": "Choose a window.",
-  "subline": "Every tile is its own page — its own data, its own world. Hold the orb on the right to navigate.",
-  "footer": "drop a folder in /pages · list it in index.json · done",
-  "accent": "magenta",
+  "subline": "Every tile is its own page \u2014 its own data, its own world. Hold the orb on the right to navigate.",
+  "footer": "drop a folder in /pages \u00b7 list it in index.json \u00b7 done",
+  "accent": "turquoise",
   "sources": [
-    { "id": "me",  "label": "Me",  "icon": "user", "accent": "magenta",   "description": "hand-built pages" },
-    { "id": "ai", "label": "AI", "icon": "bot",  "accent": "turquoise", "description": "built by AI" }
-  ]
+    {
+      "id": "fatiha",
+      "label": "Welcome",
+      "icon": "home",
+      "accent": "turquoise",
+      "description": "Welcome to the demo version of Viewscape One!"
+    },
+    {
+      "id": "operator",
+      "label": "My projects",
+      "icon": "play",
+      "accent": "red",
+      "description": "Useful projects developed by me with the assistance of AI and ACS"
+    },
+    {
+      "id": "community",
+      "label": "Community Projects",
+      "icon": "user",
+      "accent": "magenta",
+      "description": "about \u00b7 github \u00b7 studio"
+    },
+    {
+      "id": "system",
+      "label": "Settings",
+      "icon": "settings",
+      "accent": "sky",
+      "description": "Everything is saved in the browser"
+    }
+  ],
+  "github": ""
 }

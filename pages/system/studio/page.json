@@ -1,0 +1,10 @@
+{
+  "type": "custom",
+  "title": "Studio",
+  "subtitle": "Control room: import, preview, start and remove pages.",
+  "icon": "settings",
+  "accent": "turquoise",
+  "tags": ["tools", "import"],
+  "author": "sys",
+  "updated": "2026-11-18"
+}

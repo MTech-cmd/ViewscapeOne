@@ -9,13 +9,15 @@
 
   /* ---------- particle / holo-dust field ---------- */
   FX.particles = function (canvas, opts = {}) {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d'), H = document.documentElement.classList;
     const colors = opts.colors || ['255,43,214', '155,107,255', '46,242,224', '159,216,255', '168,255,208', '255,42,85'];
-    let w, h, dpr, parts = [], raf, running = true, mx = -1, my = -1;
-    const count = () => clamp(Math.round(innerWidth * innerHeight / 22000), 24, 90);
+    let w, h, dpr, parts = [], timer, raf, last = 0, mx = -1, my = -1, alive = true;
+    const lite = () => H.contains('vs-lite');
+    const count = () => clamp(Math.round(innerWidth * innerHeight / (lite() ? 60000 : VS.coarse ? 36000 : 24000)), 12, lite() ? 22 : 64);
+    const paused = () => document.hidden || H.contains('vs-idle') || H.contains('vs-no-fx') || H.contains('vs-viewing');
     function resize() {
-      dpr = Math.min(devicePixelRatio || 1, 2);
-      w = canvas.clientWidth; h = canvas.clientHeight;
+      dpr = Math.min(devicePixelRatio || 1, lite() ? 1 : 1.5);
+      w = canvas.clientWidth; h = canvas.clientHeight; if (!w || !h) return;
       canvas.width = w * dpr; canvas.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       parts = Array.from({ length: count() }, () => spawn(true));
     }
@@ -25,37 +27,37 @@
     }
     function hex(x, y, r) { ctx.beginPath(); for (let i = 0; i < 6; i++) { const a = Math.PI / 3 * i; ctx.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r); } ctx.closePath(); }
     function frame(t) {
-      if (!running) return;
+      if (!alive) return;
+      if (paused()) { ctx.clearRect(0, 0, w, h); timer = setTimeout(() => (raf = requestAnimationFrame(frame)), 600); return; }
       raf = requestAnimationFrame(frame);
-      if (document.documentElement.classList.contains('vs-no-fx')) { ctx.clearRect(0, 0, w, h); return; }
+      const gap = lite() || VS.coarse ? 33 : 16; if (t - last < gap) return; last = t;
       ctx.clearRect(0, 0, w, h);
       for (const p of parts) {
-        p.y -= p.v; p.x += Math.sin(t / 1800 + p.d) * .25;
+        p.y -= p.v * (gap / 16); p.x += Math.sin(t / 1800 + p.d) * .25;
         if (mx >= 0) { const dx = p.x - mx, dy = p.y - my, d2 = dx * dx + dy * dy; if (d2 < 14000) { p.x += dx / 60; p.y += dy / 60; } }
         if (p.y < -10) Object.assign(p, spawn(false));
         const tw = .6 + .4 * Math.sin(t / 500 + p.d);
-        ctx.fillStyle = `rgba(${p.c},${p.a * tw})`; ctx.strokeStyle = `rgba(${p.c},${p.a * tw})`;
+        ctx.fillStyle = ctx.strokeStyle = `rgba(${p.c},${p.a * tw})`;
         if (p.hex) { hex(p.x, p.y, p.r * 4); ctx.lineWidth = .8; ctx.stroke(); }
         else { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill(); }
       }
-      // faint connections
+      if (lite()) return;                    // connection lines only on capable devices
       ctx.lineWidth = .5;
       for (let i = 0; i < parts.length; i++) for (let j = i + 1; j < parts.length; j++) {
         const a = parts[i], b = parts[j], dx = a.x - b.x, dy = a.y - b.y, d = dx * dx + dy * dy;
         if (d < 9000) { ctx.strokeStyle = `rgba(${a.c},${(1 - d / 9000) * .14})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
       }
     }
-    addEventListener('resize', resize);
-    addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
-    addEventListener('pointerleave', () => { mx = my = -1; });
-    document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) raf = requestAnimationFrame(frame); });
+    let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resize, 150); });
+    if (!VS.coarse) addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+    VS.on('perf', resize);
     resize(); raf = requestAnimationFrame(frame);
-    return { stop() { running = false; cancelAnimationFrame(raf); } };
+    return { stop() { alive = false; cancelAnimationFrame(raf); clearTimeout(timer); } };
   };
 
   /* ---------- 3D tilt + glare for any element ---------- */
   FX.tilt = function (node, { max = 9, glare = true } = {}) {
-    if (matchMedia('(hover: none)').matches) return;
+    if (matchMedia('(hover: none)').matches || document.documentElement.classList.contains('vs-lite')) return;
     let g; if (glare) { g = el('i', { class: 'vs-glare' }); node.append(g); }
     node.addEventListener('pointermove', e => {
       if (document.documentElement.classList.contains('vs-reduce')) return;

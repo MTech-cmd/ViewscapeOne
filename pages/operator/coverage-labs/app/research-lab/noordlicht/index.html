@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><script id="coverage-path-resolver">(function(){
+  const p=location.pathname; const marker='/app/'; const i=p.indexOf(marker);
+  const base=i>=0?p.slice(0,i+marker.length):'/';
+  window.COVERAGE_APP_BASE=base;
+  const attrs=['href','src','action','poster','data'];
+  function fix(el){ for(const a of attrs){const v=el.getAttribute&&el.getAttribute(a); if(v&&v.startsWith('/')&&!v.startsWith('//')&&!v.startsWith('/#')) el.setAttribute(a,base+v.slice(1));}}
+  function scan(node){if(node.nodeType!==1)return; fix(node); node.querySelectorAll&&node.querySelectorAll('[href^="/"],[src^="/"],[action^="/"],[poster^="/"],[data^="/"]').forEach(fix);}
+  document.addEventListener('DOMContentLoaded',()=>scan(document.documentElement),{once:true});
+  new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(scan))).observe(document.documentElement,{childList:true,subtree:true});
+  window.coveragePath=(path)=>base+String(path||'').replace(/^\/+/, '');
+})();</script><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=website/index.html"><title>Noordlicht Zorg</title></head><body><p><a href="website/index.html">Open Noordlicht Zorg</a></p><aside class="gg-inline-ad" aria-label="Sponsored platform"><a href="../../goedgeregeld/index.html"><span>AD · GOEDGEREGELD</span><b>One platform. Every workflow.</b><small>Your dashboard has a dashboard. We call that integration. · Explore the enterprise suite ↗</small></a></aside><style>.gg-inline-ad{margin:28px 0;padding:13px;border:1px solid #e8a9d6;border-radius:13px;background:linear-gradient(110deg,#fff2a9,#ffc2e5,#c4f4e5);font:14px/1.4 system-ui}.gg-inline-ad a{display:grid;gap:4px;color:#241633;text-decoration:none}.gg-inline-ad span{font-size:9px;letter-spacing:.16em;font-weight:900}.gg-inline-ad b{font-size:17px}.gg-inline-ad small{font-size:11px}</style></body></html>

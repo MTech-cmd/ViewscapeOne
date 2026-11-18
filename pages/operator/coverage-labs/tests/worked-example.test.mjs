@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const read=p=>fs.readFileSync(path.join(root,p),'utf8');
+test('worked example is integrated into learner home',()=>{const h=read('app/index.html');assert.match(h,/worked-example\.html/);assert.match(h,/FREQUENCY/);assert.equal((h.match(/<h3>Frequency<\/h3>/g)||[]).length,1)});
+test('worked example includes all investigation sections',()=>{const h=read('app/worked-example.html');for(const id of ['brief','entities','claims','sources','evidence','findings','report','workspace'])assert.match(h,new RegExp(`pane-${id}`));});
+test('nine source records are linked from the research desk',()=>{const h=read('app/research-lab/frequency/research/desk.html');assert.equal((h.match(/href=\"\.\.\/Sources\//g)||[]).length,9);});
+test('facilitator guide is outside learner app',()=>{assert.ok(fs.existsSync(path.join(root,'facilitator-only/FREQUENCY_WORKED_EXAMPLE_GUIDE.md')));assert.ok(!fs.existsSync(path.join(root,'app/facilitator-only/FREQUENCY_WORKED_EXAMPLE_GUIDE.md')))});
+test('package version is 0.1.4',()=>{const p=JSON.parse(read('package.json'));assert.equal(p.version.split('+')[0],'0.1.4')});

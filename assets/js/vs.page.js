@@ -13,12 +13,17 @@
   const P = VS.page = { base };
 
   /* ---------- wheel helpers shared with home ---------- */
+  const cyc = (k, o) => () => VS.prefs.set(k, o[(o.indexOf(VS.prefs.get(k)) + 1) % o.length]);
   VS.wheel.display = () => ({
-    id: 'display', label: 'Display', icon: 'eye', hint: 'fx · scan · motion', children: [
+    id: 'display', label: 'Display', icon: 'eye', hint: 'fx · perf · orb', children: [
       { id: 'fx', label: 'Particles', icon: 'sparkle', keepOpen: true, hint: () => VS.prefs.get('fx') ? 'ON' : 'OFF', onSelect: () => VS.prefs.toggle('fx') },
       { id: 'scan', label: 'Scanlines', icon: 'wave', keepOpen: true, hint: () => VS.prefs.get('scan') ? 'ON' : 'OFF', onSelect: () => VS.prefs.toggle('scan') },
-      { id: 'motion', label: 'Motion', icon: 'zap', keepOpen: true, hint: () => VS.prefs.get('motion') ? 'ON' : 'OFF', onSelect: () => VS.prefs.toggle('motion') }
-    ]
+      { id: 'motion', label: 'Motion', icon: 'zap', keepOpen: true, hint: () => VS.prefs.get('motion') ? 'ON' : 'OFF', onSelect: () => VS.prefs.toggle('motion') },
+      { id: 'perf', label: 'Performance', icon: 'cube', keepOpen: true, hint: () => VS.prefs.get('perf') + (VS.perf && VS.perf.level === 'lite' ? ' · lite' : ''), onSelect: cyc('perf', ['auto', 'high', 'lite']) },
+      { id: 'wy', label: 'Orb height', icon: 'top', keepOpen: true, hint: () => VS.prefs.get('wheelY'), onSelect: cyc('wheelY', ['mid', 'low', 'high']) },
+      { id: 'hap', label: 'Haptics', icon: 'wave', keepOpen: true, hint: () => VS.prefs.get('haptic') ? 'ON' : 'OFF', onSelect: () => VS.prefs.toggle('haptic') },
+      VS.wakeSupported ? { id: 'awake', label: 'Stay awake', icon: 'eye', keepOpen: true, hint: () => VS.prefs.get('awake') ? 'ON' : 'OFF', onSelect: () => VS.prefs.toggle('awake') } : null
+    ].filter(Boolean)
   });
   VS.wheel.accentSlot = () => ({ id: 'accent', label: 'Colour', icon: 'palette', keepOpen: true, hint: () => VS.accent.get(), onSelect: () => VS.accent.cycle() });
 
@@ -54,11 +59,13 @@
       extras.length ? { id: 'extras', label: meta.wheel.label || 'Page', icon: 'star', hint: extras.length + ' actions', children: extras } : { id: 'top2', label: 'Top', icon: 'top', onSelect: () => scrollTo({ top: 0, behavior: 'smooth' }) },
       VS.wheel.accentSlot(),
       {
-        id: 'share', label: 'Share', icon: 'link', hint: 'link · fullscreen', children: [
-          { id: 'copy', label: 'Copy link', icon: 'copy', onSelect: () => { const u = ctx.ref ? location.href : location.href; navigator.clipboard && navigator.clipboard.writeText(u); VS.fx.toast('Link copied', 'link'); } },
-          { id: 'tab', label: 'Open alone', icon: 'external', hint: 'new tab', onSelect: () => window.open(location.href, '_blank', 'noopener') },
-          { id: 'fs', label: 'Fullscreen', icon: 'expand', onSelect: () => VS.nav.fullscreen() }
-        ]
+        id: 'window', label: 'Window', icon: 'columns', hint: () => (VS.win && VS.win.count() > 1 ? VS.win.count() + ' windows' : 'full · pop · split'), children: [
+          { id: 'fs', label: 'Fullscreen', icon: 'expand', hint: 'key F', onSelect: () => VS.full.toggle() },
+          VS.nav.embedded ? { id: 'split', label: 'Split view', icon: 'columns', hint: 'open beside', onSelect: () => parent.postMessage({ vs: 'split' }, '*') } : null,
+          { id: 'pop', label: 'Pop out', icon: 'external', hint: 'new window', onSelect: () => VS.win.popout(ctx.ref) },
+          { id: 'cast', label: 'Cast', icon: 'cast', hint: 'to other window', onSelect: () => VS.win.cast(ctx.ref) },
+          { id: 'copy', label: 'Copy link', icon: 'copy', onSelect: () => { navigator.clipboard && navigator.clipboard.writeText(ctx.ref ? VS.root + 'index.html#/' + ctx.ref : location.href); VS.fx.toast('Link copied', 'link'); } }
+        ].filter(Boolean)
       },
       VS.wheel.display()
     ];
@@ -89,6 +96,7 @@
     const done = VS.nav.embedded ? async () => { } : loader(document.title.split('·')[0].trim());
     if (!opts.meta) { try { meta = await VS.fetchJSON(jsonUrl, { cache: false }); } catch (e) { if (!custom) { await done(); return fail(e, jsonUrl); } } }
     VS.fx.ambient(body, { particles: true });
+    VS.status && VS.status.mount({ title: meta.title || document.title.split('·')[0].trim(), state: '' });
     VS.accent.set(meta.accent || body.dataset.vsAccent || 'magenta');
     document.title = (meta.title || document.title || 'Page') + ' · Viewscape One';
     const lb = VS.fx.loadbar(); lb.start();
@@ -97,8 +105,7 @@
     if (!custom) {
       const app = $('#vs-app') || body.appendChild(el('main', { id: 'vs-app' }));
       app.classList.add('vs-wrap');
-      // topline
-      if (!VS.nav.embedded) app.append(el('nav', { class: 'vs-crumbs' }, el('a', { href: VS.root + 'index.html', html: icon('home', 16) + '<span>VIEWSCAPE ONE</span>' }), el('i', { text: '/' }), el('span', { text: ref ? ref.split('/')[0] : 'page' }), el('i', { text: '/' }), el('b', { text: meta.title })));
+      VS.status && VS.status.mount({ title: meta.title, state: '' });
       // hero
       if (meta.hero !== false) {
         const cover = meta.cover ? (/\.(mp4|webm)$/i.test(meta.cover) ? el('video', { src: VS.resolve(base, meta.cover), autoplay: '', muted: '', loop: '', playsinline: '' }) : el('img', { src: VS.resolve(base, meta.cover), alt: '' })) : null;

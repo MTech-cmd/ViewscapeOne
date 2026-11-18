@@ -1,0 +1,42 @@
+{
+  "title": "Coverage Labs",
+  "subtitle": "An open fictional playground for learning investigative journalism",
+  "description": "Explore fictional organisations, investigate claims, follow source trails and learn evidence-led reporting in a public local-first simulation.",
+  "icon": "layers",
+  "accent": "mint",
+  "tags": [
+    "WIP"
+  ],
+  "author": "Coverage Labs",
+  "updated": "18-11-2026",
+  "sections": [
+    {
+      "title": "Overview",
+      "icon": "info",
+      "blocks": [
+        {
+          "type": "text",
+          "paragraphs": [
+            "First paragraph.",
+            "Second paragraph \u2014 add as many as you like."
+          ]
+        },
+        {
+          "type": "stats",
+          "items": [
+            {
+              "label": "Metric A",
+              "value": 128,
+              "delta": "+12%"
+            },
+            {
+              "label": "Metric B",
+              "value": 4.7,
+              "decimals": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

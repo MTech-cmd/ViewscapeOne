@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><script id="coverage-path-resolver">(function(){
+  const p=location.pathname; const marker='/app/'; const i=p.indexOf(marker);
+  const base=i>=0?p.slice(0,i+marker.length):'/';
+  window.COVERAGE_APP_BASE=base;
+  const attrs=['href','src','action','poster','data'];
+  function fix(el){ for(const a of attrs){const v=el.getAttribute&&el.getAttribute(a); if(v&&v.startsWith('/')&&!v.startsWith('//')&&!v.startsWith('/#')) el.setAttribute(a,base+v.slice(1));}}
+  function scan(node){if(node.nodeType!==1)return; fix(node); node.querySelectorAll&&node.querySelectorAll('[href^="/"],[src^="/"],[action^="/"],[poster^="/"],[data^="/"]').forEach(fix);}
+  document.addEventListener('DOMContentLoaded',()=>scan(document.documentElement),{once:true});
+  new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(scan))).observe(document.documentElement,{childList:true,subtree:true});
+  window.coveragePath=(path)=>base+String(path||'').replace(/^\/+/, '');
+})();</script><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=website/index.html"><title>Kompas Coöperatieve Zorg</title></head><body><p><a href="website/index.html">Open Kompas Coöperatieve Zorg</a></p></body></html>
