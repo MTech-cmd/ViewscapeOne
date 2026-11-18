@@ -1,0 +1,16 @@
+{
+  "author": "ai",
+  "updated": "2026-11-18",
+  "type": "custom",
+  "title": "ETA to Keep the Osso",
+  "subtitle": "A live countdown from 15:00 to 17:00 Amsterdam time.",
+  "description": "A real-time countdown dashboard featuring digital and analog clocks, a two-hour progress bar, and a live ETA.",
+  "icon": "chart",
+  "accent": "turquoise",
+  "tags": [
+    "countdown",
+    "live clock",
+    "Amsterdam"
+  ],
+  "entry": "index.html"
+}

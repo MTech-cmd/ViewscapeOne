@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171a12">
+<title>ETA to Keep the Osso</title>
+<link rel="stylesheet" href="../../../assets/css/theme.css">
+<link rel="stylesheet" href="../../../assets/css/core.css">
+<link rel="stylesheet" href="style.css">
+<script src="../../../assets/js/vs.validate.js" defer></script>
+<script src="../../../assets/js/vs.core.js" defer></script>
+<script src="../../../assets/js/vs.sys.js" defer></script>
+<script src="../../../assets/js/vs.fx.js" defer></script>
+<script src="../../../assets/js/vs.blocks.js" defer></script>
+<script src="../../../assets/js/vs.wheel.js" defer></script>
+<script src="../../../assets/js/vs.page.js" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body data-vs-page data-vs-mode="custom">
+<main class="dashboard vs-wrap">
+<header class="hero" data-vs-section="Overview">
+<div class="eyebrow">AMSTERDAM · LIVE TRACKER</div>
+<h1>ETA to Keep the Osso</h1>
+<p class="subtitle">The countdown is on. Target: 17:00.</p>
+<div class="status" id="status">INITIALIZING CLOCK...</div>
+</header>
+<section class="clock-section" data-vs-section="Countdown">
+<div class="section-label">TIME REMAINING</div>
+<div class="countdown" id="countdown" aria-live="off">02:00:00</div>
+<div class="countdown-caption">HOURS : MINUTES : SECONDS</div>
+<div class="target">TARGET <strong>17:00:00</strong></div>
+</section>
+<section class="clock-panel" data-vs-section="Clocks">
+<div class="section-label">AMSTERDAM LOCAL TIME</div>
+<div class="clocks">
+<div class="analog-wrap">
+<svg class="analog" viewBox="0 0 240 240" role="img" aria-label="Analog clock showing Amsterdam local time">
+<circle cx="120" cy="120" r="108" class="dial"/>
+<circle cx="120" cy="120" r="100" class="dial-inner"/>
+<g id="ticks"></g>
+<g id="hands">
+<line id="hour-hand" x1="120" y1="120" x2="120" y2="67" class="hour-hand"/>
+<line id="minute-hand" x1="120" y1="120" x2="120" y2="40" class="minute-hand"/>
+<line id="second-hand" x1="120" y1="128" x2="120" y2="29" class="second-hand"/>
+<circle cx="120" cy="120" r="5" class="center-dot"/>
+</g>
+</svg>
+</div>
+<div class="digital-wrap">
+<div class="digital-label">DIGITAL CLOCK</div>
+<div id="digital" class="digital">14:32:00</div>
+<div id="date" class="date"></div>
+<div class="timezone">Europe / Amsterdam</div>
+</div>
+</div>
+</section>
+<section class="progress-panel" data-vs-section="Progress">
+<div class="progress-heading">
+<div>
+<div class="section-label">MISSION PROGRESS</div>
+<div class="progress-title">15:00 — 17:00</div>
+</div>
+<div id="percentage" class="percentage">0.0%</div>
+</div>
+<div class="track"><div id="progress" class="progress-fill"></div><div class="track-marker"></div></div>
+<div class="progress-times"><span>15:00 START</span><span>17:00 TARGET</span></div>
+<div id="elapsed" class="elapsed">Waiting for 15:00 Amsterdam time.</div>
+</section>
+<footer data-vs-section="Information">
+<div class="footer-line"></div>
+<div>LIVE SYSTEM CLOCK <span id="footer-time">--:--:--</span></div>
+<div class="footer-note">All times use the Europe/Amsterdam timezone. The countdown updates every second.</div>
+</footer>
+</main>
+</body>
+</html>
